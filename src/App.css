@@ -5,12 +5,49 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+   /* circle with white border */
+  border-radius: 50%;
+  border: 4px solid rgb(163, 163, 163);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.img-company {
+/* center image verically in div */
+  display: block;
+  margin: auto;
+  width: 90%;
+  height: auto;
+  background-color: #282c34;
+  border-radius: 1em;
+}
+
+@media screen and (max-width: 768px) {
+  .img-company {
+    width: 40%;
+    height: auto;
+    margin-top:1em;
+    margin-bottom: 1em;
+
   }
+
+  
+}
+
+.description{
+  color: #fff;
+  text-align: left;
+  font-size: medium;
+}
+
+.location{
+  color: rgb(140, 140, 140);
+  font-size: small;
+}
+
+.jobTitle{
+  color: rgb(234, 234, 234);
+  font-size: larger;
+  text-align: left;
+
 }
 
 .App-header {
@@ -23,16 +60,36 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.job{
+  padding: 0.4em;
+  padding-top: 1.2em;
+  width: 100%;
+}
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.icons a {
+  color: #dbdbdb;
+  padding: .2em;
+}
+
+.borderJob {
+  width: 100%;
+  /* height is widtth 1920px / height 150px */
+  aspect-ratio: 1920/150;
+  background-position: center;
+  background-size: cover;
+}
+
+.links{
+  text-align: left;
+  padding: .2em;
+}
+.links a{
+  color: #dbdbdb;
+  width:100%;
+  display: block;
+  font-size: small;
 }

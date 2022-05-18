@@ -6,7 +6,7 @@ import Job from './class/Job';
 
 const jobs = [
   {
-    title: 'SWE Intern',
+    title: 'Software Engineer Intern',
     description: [],
     company: 'PlayStation - Sony',
     location: 'San Francisco, CA',

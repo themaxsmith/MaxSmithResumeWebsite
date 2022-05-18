@@ -93,3 +93,13 @@
   display: block;
   font-size: small;
 }
+
+.footer{
+  /* background-color: #282c34; */
+  color: #dbdbdb;
+  padding: .2em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  text-align: center;
+  font-size: small;
+}

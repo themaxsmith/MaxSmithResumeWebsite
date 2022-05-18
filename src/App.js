@@ -12,21 +12,25 @@ const jobs = [
     location: 'San Francisco, CA',
     date: 'May 2022 - Augest 2022',
     image: './imgs/sonylogo.jpg',
-    border: {
-      backgroundImage: './imgs/playstation-border.png',
-    }
+    // border: {
+    //   backgroundImage: './imgs/playstation-border.png',
+    // }
   },
   {
     title: 'Founder & Software Developer',
     description: [
-      'Created & developed a user-generated live streaming platform (SeasonCast app & SeasonCast.com)',
-      'Used by 300,000+ monthly users & 6,000+ high school/youth teams in the US',
-      'Full-stack software development: mobile application, dynamic web application, and (public & private) API',
-      'Developed internal systems: server transcoding, graphics rendering, payment notification webhooks, clustering, and auto-failover management',
-      'Soft skills: Customer communication/budgeting/management/marketing skills',
-      'Built systems for scalability, high availability, & redundancy',
-      'Learned the skills needed to run a profitable startup software company',
-      'Used: Swift, JS, Obj-C, C++, Java, SQL, No SQL, Vue.js, GCP',
+
+      'Developed a successful live streaming platform (iOS, Android, & web) that was used by 300,000+ monthly users & 6,000+ high school/youth teams yearly',
+      'Created a profitable business model: each team paid a yearly subscription of $45 per year + 20% profit sharing on PPV revenue from viewers.',
+      '4.7/5 stars with 2,600+ reviews on the Apple App Store.',
+      'Full-stack software development: mobile application (Swift & Java), web application (Vue.js), and API (Node.js). Design & developed 100% of all 7 codebases for SeasonCast',
+      'Soft skills: customer support, managing budgets, marketing skills, accounting',
+      'Developed internal systems: server transcoding, graphics rendering, payment notification webhooks, clustering, admin systems, and auto-failover management',
+      'Built systems for scalability, reliability, & redundancy. 99.995% global uptime for 3+ years - less than 26 mins yearly (status.seasoncast.com). 13+ VM instances self-managed.',
+      'Using cutting edge live streaming technology: SRT, Dash, P2P CDN, mobile graphics, WebRTC',
+      'Awarded 1st place for best student-owned business at Iowa State University in 2021',
+      'Used: Swift (iOS/MacOS), JavaScript (Node.js), Vue.js, Obj-C, C++ (Custom Media Server), Java (Android), SQL (user management), No SQL (game scoring stats), Jest, Nginx, AWS (S3, lambda), GCP (compute, firestore, firebase), Python (push notifications), Apple IAP & Stripe (payment processing), streaming protocols (SRT, RTMP, WebRTC, HLS, DASH), P2P streaming, CDN video distribution'
+
     ],
     company: 'SeasonCast',
     location: 'Iowa, US',
@@ -111,6 +115,12 @@ const jobs = [
     ],
     date: 'May 2019 - Aug 2019',
     image: './imgs/teroLogo.jpeg',
+    links: [
+      {
+        text: 'Tero Cards (Developed by Me)',
+        url: 'https://www.tero.com/cards',
+      }
+    ]
   },
       
 
@@ -142,6 +152,18 @@ function App() {
         <div className="jobs" class="container">
         {jobs.map(job => <Job key={job.title} job={job} />)}
     </div>
+
+    {/* footer saying Created in React by Maxwell Smith */}
+    <div class="footer">
+      <small>Website Created by Maxwell Smith</small><br />
+      {/* view on github (icon) */}
+      View Source Code on <a style={{color: 'grey'}} href="https://github.com/themaxsmith/MaxSmithResumeWebsite" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-github"></i>
+      </a>
+    </div>
+
+   
+            
       </header>
 
     </div>

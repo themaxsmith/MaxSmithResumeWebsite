@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/MaxSmithResumeWebsite/static/css/main.caad7f43.css",
+    "main.js": "/MaxSmithResumeWebsite/static/js/main.a7a625e9.js",
+    "static/js/787.a10c153b.chunk.js": "/MaxSmithResumeWebsite/static/js/787.a10c153b.chunk.js",
+    "static/media/headshot-crop.jpg": "/MaxSmithResumeWebsite/static/media/headshot-crop.6a296f605ef1b40e7016.jpg",
+    "static/media/bootstrap-icons.woff?": "/MaxSmithResumeWebsite/static/media/bootstrap-icons.7ff3ca6fa798de3f8ac2.woff",
+    "static/media/bootstrap-icons.woff2?": "/MaxSmithResumeWebsite/static/media/bootstrap-icons.f2539a501be3a673de05.woff2",
+    "index.html": "/MaxSmithResumeWebsite/index.html",
+    "main.caad7f43.css.map": "/MaxSmithResumeWebsite/static/css/main.caad7f43.css.map",
+    "main.a7a625e9.js.map": "/MaxSmithResumeWebsite/static/js/main.a7a625e9.js.map",
+    "787.a10c153b.chunk.js.map": "/MaxSmithResumeWebsite/static/js/787.a10c153b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.caad7f43.css",
+    "static/js/main.a7a625e9.js"
+  ]
+}

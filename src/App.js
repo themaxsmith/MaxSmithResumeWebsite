@@ -157,7 +157,7 @@ function App() {
     <div class="footer">
       <small>Website Created by Maxwell Smith</small><br />
       {/* view on github (icon) */}
-      View Source Code on <a style={{color: 'grey'}} href="https://github.com/themaxsmith/MaxSmithResumeWebsite" target="_blank" rel="noopener noreferrer">
+      Source Code on <a style={{color: 'grey'}} href="https://github.com/themaxsmith/MaxSmithResumeWebsite" target="_blank" rel="noopener noreferrer">
         <i class="bi bi-github"></i>
       </a>
     </div>

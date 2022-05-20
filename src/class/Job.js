@@ -9,13 +9,7 @@ class Job extends React.Component {
             <div class="col-md-2 col-12">
                 {/* <img src={this.props.job.image} style={this.props.job.imageStyle} class="img-company" alt="logo" /> */}
             </div>
-            <div class="d-block d-md-none col-12 location">
-                <span>{this.props.job.location}<br/>
-                {this.props.job.date}</span>
-                <br />
-                <br />
-
-            </div>
+       
             <div class="col-md-8 col-12">
                 <h3 class="jobTitle">{this.props.job.title} at {this.props.job.company}</h3>
                 {/* props.job.description list as bullet points */}
@@ -31,6 +25,13 @@ class Job extends React.Component {
 
                 </div>
                 ) : null}
+                     <div class="d-block d-md-none col-12 location">
+                <span>{this.props.job.location}<br/>
+                {this.props.job.date}</span>
+                <br />
+                <br />
+
+            </div>
             </div>
             <div class="col-md-2 d-none d-md-block location">
                 <span>{this.props.job.location}<br/>

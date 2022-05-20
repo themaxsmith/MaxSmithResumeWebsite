@@ -1,10 +1,16 @@
 # Maxwell Smith - Personal Website
-- Built using React, and Github Pages
-- Updated to match resume
+- Built using React, Framer (Motion) and Github Pages
+- Updated to match my resume
+- Working on making it more impressive
+- Show off work at jobs
 
-<!-- themaxsmith.com link -->
-(https://www.themaxsmith.com)
+(https://themaxsmith.com)
 
-## ToDo 
-- Add interactive (probably via react motion)
-- Add animations
+## Todo 
+- [x] Add animation clouds
+- [ ] Add something dynamic in the ground
+- [ ] Add something interactive (maybe device gyroscope or arrow keys)
+- [ ] Work on the hr between jobs
+- [ ] Add school experience
+- [ ] Add a mini game
+

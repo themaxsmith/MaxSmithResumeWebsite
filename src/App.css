@@ -78,7 +78,11 @@
 
 .icons a {
   color: #dbdbdb;
-  padding: .2em;
+  padding: .3em;
+  border-radius: .1em;
+  background-color: #432e04;
+  margin-left: .1em;
+  margin-right: .1em;
 }
 
 .borderJob {

@@ -7,7 +7,7 @@ class Job extends React.Component {
       <div class="job">
         <div class="row">
             <div class="col-md-2 col-12">
-                <img src={this.props.job.image} style={this.props.job.imageStyle} class="img-company" alt="logo" />
+                {/* <img src={this.props.job.image} style={this.props.job.imageStyle} class="img-company" alt="logo" /> */}
             </div>
             <div class="d-block d-md-none col-12 location">
                 <span>{this.props.job.location}<br/>

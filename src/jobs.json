@@ -22,7 +22,7 @@
         "Used: Swift (iOS/MacOS), JavaScript (Node.js), Vue.js, Obj-C, C++ (Custom Media Server), Java (Android), SQL (user management), No SQL (game scoring stats), Jest, Nginx, AWS (S3, lambda), GCP (compute, firestore, firebase), Python (push notifications), Apple IAP & Stripe (payment processing), streaming protocols (SRT, RTMP, WebRTC, HLS, DASH), P2P streaming, CDN video distribution"
       ],
       "company": "SeasonCast",
-      "location": "Iowa, US",
+      "location": "Ankeny, IA",
       "date": "June 2018 - Present",
       "image": "./imgs/seasoncastLogo.svg",
       "imageStyle": {

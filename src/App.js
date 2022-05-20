@@ -12,98 +12,70 @@ function App() {
       <header className="App-header">
 
         <div class="aboutMe">
-        <motion.div
-                style={{
-                    position: "absolute",
-                    zIndex: 1,
-                    left: "-10em",
-                    width: "10em",
-                    height: "10em",
-                    // use cloud.svg as a background image
-                    backgroundImage: `url(${cloud})`,
-                    // fit image
-                    backgroundRepeat: "no-repeat",
 
-                    backgroundSize: "contain",
-                }}
 
-                animate={{ left: "110%" }}
-                transition={{ ease: "linear", duration: 38, repeat: Infinity }}
-            ></motion.div>
-                  <motion.div
-                style={{
-                    position: "absolute",
-                    zIndex: 1,
-                    left: "-15em",
-                    width: "15em",
-                    top: "10%",
-                    
-                    height: "10em",
-                    // use cloud.svg as a background image
-                    backgroundImage: `url(${cloud})`,
-                    // fit image
-                    backgroundRepeat: "no-repeat",
+               {/* for 1-10 create motion div with random duration width, height, and top */}
+               {[...Array(30)].map((x, i) => {
+                 const randomDuration = Math.floor(Math.random() * (120 - 40 + 1)) + 40;
+                 const randomWidth = Math.floor(Math.random() * (15 - 5 + 1)) + 5;
+                 const randomHeight = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+                  const randomTop = Math.floor(Math.random() * (30 )) ;
+                  return (
+                    <motion.div
+                      key={i}
+                      style={{
+                        position: "absolute",
+                        zIndex: 1,
+                        left:`-${randomWidth+5}em`,
+                        width: `${randomWidth}em`,
+                        height: `${randomHeight}em`,
+                        top: `${randomTop}%`,
+                        // use cloud.svg as a background image
+                        backgroundImage: `url(${cloud})`,
+                        // fit image
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "contain",
+                      }}
+                      animate={{ left: "110%" }}
+                     
+                      transition={{ ease: "linear", duration: randomDuration, repeat: Infinity
+                    , delay: i * 4 }}
+                    ></motion.div>
+                  );
+                })}
+               
+               {[...Array(8)].map((x, i) => {
+                 const randomDuration = Math.floor(Math.random() * (120 - 40 + 1)) + 40;
+                 const randomWidth = Math.floor(Math.random() * (15 - 5 + 1)) + 5;
+                 const randomHeight = Math.floor(Math.random() * (12 - 1 )) + 1;
+                  const randomTop = Math.floor(Math.random() * (25 )) ;
+                  const randomLeft = Math.floor(Math.random() * (100 )) ;
+                const calculateDurationRatio = ((100-randomLeft) / 100 * randomDuration);
+                  return (
+                    <motion.div
+                      key={i}
+                      style={{
+                        position: "absolute",
+                        zIndex: 1,
+                        left:`${randomLeft}%`,
+                        width: `${randomWidth}em`,
+                        height: `${randomHeight}em`,
+                        top: `${randomTop}%`,
+                        // use cloud.svg as a background image
+                        backgroundImage: `url(${cloud})`,
+                        // fit image
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "contain",
+                      }}
+                      animate={{ left: "110%" }}
+                     
+                      transition={{ ease: "linear", duration: calculateDurationRatio, repeat: NaN
+                    }}
+                    ></motion.div>
+                  );
+                })}
+               
 
-                    backgroundSize: "contain",
-                }}
-                
-                animate={{ left: "110%" }}
-                transition={{ ease: "linear", duration: 65, repeat: Infinity }}
-            ></motion.div>
-
-<motion.div
-                style={{
-                    position: "absolute",
-                    zIndex: 1,
-                    left: "-20em",
-                    width: "20em",
-                    top: "5%",
-                    height: "5em",
-                    // use cloud.svg as a background image
-                    backgroundImage: `url(${cloud})`,
-                    // fit image
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "contain",
-                }}
-                animate={{ left: "110%" }}
-                transition={{ ease: "linear", duration: 95, repeat: Infinity }}
-            ></motion.div>
-                   <motion.div
-                style={{
-                    position: "absolute",
-                    zIndex: 1,
-                    left: "-13em",
-                    width: "13em",
-                    top: "7%",
-                    height: "8em",
-                    // use cloud.svg as a background image
-                    backgroundImage: `url(${cloud})`,
-                    // fit image
-                    backgroundRepeat: "no-repeat",
-
-                    backgroundSize: "contain",
-                }}
-                animate={{ left: "110%" }}
-                transition={{ ease: "linear", duration: 80, repeat: Infinity }}
-            ></motion.div>
-            <motion.div
-                style={{
-                    position: "absolute",
-                    zIndex: 1,
-                    left: "50%",
-                    width: "13em",
-                    top: "9%",
-                    height: "8em",
-                    // use cloud.svg as a background image
-                    backgroundImage: `url(${cloud})`,
-                    // fit image
-                    backgroundRepeat: "no-repeat",
-
-                    backgroundSize: "contain",
-                }}
-                animate={{ left: "110%" }}
-                transition={{ ease: "linear", duration: 43, repeat: NaN }}
-            ></motion.div>
         <br />
         <div class="billboard">
         <img src={logo} className="App-logo" alt="logo" />
@@ -133,7 +105,7 @@ function App() {
 </div>
     </div>
         <hr />
-        <div className="jobs" class="container">
+        <div className="jobs" class="container jobs">
         {jobs.map(job => <Job key={job.title} job={job} />)}
     </div>
 

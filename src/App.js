@@ -28,7 +28,7 @@ function App() {
                 }}
 
                 animate={{ left: "110%" }}
-                transition={{ ease: "linear", duration: 18, repeat: Infinity }}
+                transition={{ ease: "linear", duration: 38, repeat: Infinity }}
             ></motion.div>
                   <motion.div
                 style={{
@@ -48,7 +48,7 @@ function App() {
                 }}
                 
                 animate={{ left: "110%" }}
-                transition={{ ease: "linear", duration: 25, repeat: Infinity }}
+                transition={{ ease: "linear", duration: 65, repeat: Infinity }}
             ></motion.div>
 
 <motion.div
@@ -66,7 +66,7 @@ function App() {
                     backgroundSize: "contain",
                 }}
                 animate={{ left: "110%" }}
-                transition={{ ease: "linear", duration: 35, repeat: Infinity }}
+                transition={{ ease: "linear", duration: 95, repeat: Infinity }}
             ></motion.div>
                    <motion.div
                 style={{
@@ -84,7 +84,25 @@ function App() {
                     backgroundSize: "contain",
                 }}
                 animate={{ left: "110%" }}
-                transition={{ ease: "linear", duration: 40, repeat: Infinity }}
+                transition={{ ease: "linear", duration: 80, repeat: Infinity }}
+            ></motion.div>
+            <motion.div
+                style={{
+                    position: "absolute",
+                    zIndex: 1,
+                    left: "50%",
+                    width: "13em",
+                    top: "9%",
+                    height: "8em",
+                    // use cloud.svg as a background image
+                    backgroundImage: `url(${cloud})`,
+                    // fit image
+                    backgroundRepeat: "no-repeat",
+
+                    backgroundSize: "contain",
+                }}
+                animate={{ left: "110%" }}
+                transition={{ ease: "linear", duration: 43, repeat: NaN }}
             ></motion.div>
         <br />
         <div class="billboard">

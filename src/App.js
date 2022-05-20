@@ -91,7 +91,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1 class="name">Maxwell Smith</h1>
         <h5>Full Stack Software Engineer</h5>
-        <h5>Des Moines, IA | San Francisco, CA</h5>
+        <h5>Des Moines, IA • San Francisco, CA</h5>
         <br />
         </div>
 <div class="grass"></div>

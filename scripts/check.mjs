@@ -6,6 +6,7 @@
 
 import { readFileSync, existsSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
+import { homedir } from "node:os";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -13,27 +14,40 @@ const site = join(root, "site");
 const rules = JSON.parse(readFileSync(join(root, "scripts", "guardrails.json"), "utf8"));
 const html = readFileSync(join(site, "index.html"), "utf8");
 
+// Private terms never live in this public repo. CI runs the public rules only;
+// local and agent runs also load the private list when it is present.
+const privatePath = process.env.THEMAXSMITH_PRIVATE_GUARDRAILS ||
+  join(homedir(), ".config", "themaxsmith", "guardrails.private.json");
+const privateRules = existsSync(privatePath) ? JSON.parse(readFileSync(privatePath, "utf8")).forbidden || [] : null;
+
 const failures = [];
 const passes = [];
 const check = (ok, label, detail = "") => (ok ? passes : failures).push(detail ? `${label}: ${detail}` : label);
 
 // ---------- 1. guardrails ----------
-for (const file of rules.scan) {
-  const path = join(site, file);
-  if (!existsSync(path)) continue;
-  const text = readFileSync(path, "utf8");
-  for (const { pattern, reason } of rules.forbidden) {
-    const m = text.match(new RegExp(pattern, "i"));
-    check(!m, `guardrail ${file} /${pattern}/`, m ? `found "${m[0]}" (${reason})` : "");
+const scan = (list, privateList) => {
+  for (const file of rules.scan) {
+    const path = join(site, file);
+    if (!existsSync(path)) continue;
+    const text = readFileSync(path, "utf8");
+    list.forEach(({ pattern, reason }, n) => {
+      const m = text.match(new RegExp(pattern, "i"));
+      // private hits are reported by rule number only, so CI logs never echo a private term
+      const label = privateList ? `private guardrail #${n + 1} in ${file}` : `guardrail ${file} /${pattern}/`;
+      check(!m, label, m ? (privateList ? "matched" : `found "${m[0]}" (${reason})`) : "");
+    });
   }
-}
+};
+scan(rules.forbidden, false);
+if (privateRules) scan(privateRules, true);
 
-if (rules.apple_role_must_be_bare) {
-  // The Apple role is title, place and dates only: no expandable details.
+if (rules.employer_role_must_be_bare) {
+  // The current employer's role is title, place and dates only: no expandable details.
+  const org = rules.employer_role_must_be_bare;
   const li = [...html.matchAll(/<li class="role">([\s\S]*?)<\/li>\s*(?=<li|<\/ol>)/g)].map((m) => m[1]);
-  const apple = li.find((x) => /role-org">Apple</.test(x));
-  check(Boolean(apple), "Apple role present");
-  check(apple && !/<details|role-body/.test(apple), "Apple role has no details");
+  const role = li.find((x) => x.includes(`role-org">${org}<`));
+  check(Boolean(role), `${org} role present`);
+  check(role && !/<details|role-body/.test(role), `${org} role has no details`);
 }
 
 // ---------- 2. search basics ----------
@@ -95,5 +109,6 @@ check(weight < 200_000, "first view under 200 KB", `${Math.round(weight / 1024)}
 
 // ---------- report ----------
 for (const f of failures) console.log(`FAIL  ${f}`);
+console.log(privateRules ? `private guardrails: ${privateRules.length} rules loaded` : "private guardrails: not found, public rules only");
 console.log(`${passes.length} passed, ${failures.length} failed`);
 process.exit(failures.length ? 1 : 0);

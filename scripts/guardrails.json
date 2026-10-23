@@ -1,0 +1,22 @@
+{
+  "_why": "Things that must never appear on the public site. Max works at Apple: no confidential or unannounced work, no team or project names, no internal tools, no Apple branding, no private contact details. Add to this list; never remove from it without Max.",
+  "forbidden": [
+    { "pattern": "supply[ -]?chain", "reason": "describes current Apple work" },
+    { "pattern": "global sourcing", "reason": "Apple team name" },
+    { "pattern": "solutions (&|and) strategy", "reason": "Apple team name" },
+    { "pattern": "tigergraph|snowflake|langgraph|claude sdk", "reason": "tools used in current Apple work" },
+    { "pattern": "sessionshare", "reason": "possibly internal PlayStation project name" },
+    { "pattern": "unannounced|confidential|internal only|under nda", "reason": "never hint at undisclosed work" },
+    { "pattern": "apple park", "reason": "campus imagery or references imply access" },
+    { "pattern": "\\uF8FF", "reason": "Apple logo glyph" },
+    { "pattern": "apple\\.com", "reason": "no links that read as speaking for Apple" },
+    { "pattern": "\\(?515\\)?[-. ]?661", "reason": "private phone number" },
+    { "pattern": "\\b\\d{3}[-. ]\\d{3}[-. ]\\d{4}\\b", "reason": "phone number" },
+    { "pattern": "themaxsmith@icloud\\.com", "reason": "email must be assembled in JS, not sitting in the HTML" },
+    { "pattern": "apps\\.apple\\.com", "reason": "App Store distribution link (Apple app-creation rules)" },
+    { "pattern": "seasoncast\\.com", "reason": "SeasonCast is presented as past work only" },
+    { "pattern": "instagram\\.com", "reason": "personal account stays separate until Max decides" }
+  ],
+  "apple_role_must_be_bare": true,
+  "scan": ["index.html", "404.html", "llms.txt", "main.js", "site.webmanifest"]
+}

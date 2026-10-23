@@ -1,0 +1,99 @@
+#!/usr/bin/env node
+// Pre-publish check for themaxsmith.com. Zero dependencies: `node scripts/check.mjs`.
+// 1. Guardrails: nothing confidential, private or Apple-branded on the public site.
+// 2. Search basics: title, description, canonical, structured data, sitemap, images.
+// Exit code 1 on any failure, so CI and agents can gate on it.
+
+import { readFileSync, existsSync, statSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const site = join(root, "site");
+const rules = JSON.parse(readFileSync(join(root, "scripts", "guardrails.json"), "utf8"));
+const html = readFileSync(join(site, "index.html"), "utf8");
+
+const failures = [];
+const passes = [];
+const check = (ok, label, detail = "") => (ok ? passes : failures).push(detail ? `${label}: ${detail}` : label);
+
+// ---------- 1. guardrails ----------
+for (const file of rules.scan) {
+  const path = join(site, file);
+  if (!existsSync(path)) continue;
+  const text = readFileSync(path, "utf8");
+  for (const { pattern, reason } of rules.forbidden) {
+    const m = text.match(new RegExp(pattern, "i"));
+    check(!m, `guardrail ${file} /${pattern}/`, m ? `found "${m[0]}" (${reason})` : "");
+  }
+}
+
+if (rules.apple_role_must_be_bare) {
+  // The Apple role is title, place and dates only: no expandable details.
+  const li = [...html.matchAll(/<li class="role">([\s\S]*?)<\/li>\s*(?=<li|<\/ol>)/g)].map((m) => m[1]);
+  const apple = li.find((x) => /role-org">Apple</.test(x));
+  check(Boolean(apple), "Apple role present");
+  check(apple && !/<details|role-body/.test(apple), "Apple role has no details");
+}
+
+// ---------- 2. search basics ----------
+const tag = (re) => (html.match(re) || [])[1];
+const title = tag(/<title>([^<]*)<\/title>/);
+check(Boolean(title) && /Max Smith/.test(title), "title names Max Smith", title);
+check(title && title.length <= 65, "title length ≤ 65", `${title?.length}`);
+
+const desc = tag(/<meta name="description" content="([^"]*)"/);
+check(desc && desc.length >= 70 && desc.length <= 160, "description 70–160 chars", `${desc?.length}`);
+for (const word of ["Max", "Smith", "Mountain View", "Iowa", "San Francisco"]) {
+  check(desc?.includes(word), `description mentions ${word}`);
+}
+
+const canonical = tag(/<link rel="canonical" href="([^"]*)"/);
+check(canonical === "https://themaxsmith.com/", "canonical is https://themaxsmith.com/", canonical);
+
+const h1s = html.match(/<h1[\s>]/g) || [];
+check(h1s.length === 1, "exactly one h1", `${h1s.length}`);
+check(/<h1[^>]*>[\s\S]*Max[\s\S]*Smith[\s\S]*<\/h1>/.test(html), "h1 reads Max Smith");
+
+for (const img of html.match(/<img\b[^>]*>/g) || []) {
+  check(/\balt="[^"]+"/.test(img), "img has alt", img.slice(0, 60));
+  check(/\bwidth="\d+"/.test(img) && /\bheight="\d+"/.test(img), "img has width and height", img.slice(0, 60));
+}
+
+const ld = tag(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+let graph = [];
+try {
+  graph = JSON.parse(ld)["@graph"] || [];
+  check(true, "JSON-LD parses");
+} catch (e) {
+  check(false, "JSON-LD parses", e.message);
+}
+const person = graph.find((n) => n["@type"] === "Person");
+check(graph.some((n) => n["@type"] === "ProfilePage"), "JSON-LD has ProfilePage");
+check(person?.name === "Max Smith", "Person.name is Max Smith");
+check(person?.alternateName?.includes("Maxwell Smith"), "Person.alternateName has Maxwell Smith");
+check((person?.sameAs || []).length >= 2, "Person.sameAs has profiles");
+
+// every local asset the page references exists
+const refs = [...html.matchAll(/(?:href|src|srcset|imagesrcset|content)="([^"]+)"/g)]
+  .flatMap((m) => m[1].split(",").map((s) => s.trim().split(/\s+/)[0]))
+  .map((u) => u.replace(/^https:\/\/themaxsmith\.com/, ""))
+  .filter((u) => u.startsWith("/") && !u.startsWith("//") && u !== "/");
+for (const ref of new Set(refs)) {
+  const p = join(site, ref);
+  check(existsSync(p) && statSync(p).isFile(), `asset exists ${ref}`);
+}
+
+const sitemap = readFileSync(join(site, "sitemap.xml"), "utf8");
+check(sitemap.includes(`<loc>${canonical}</loc>`), "sitemap lists the canonical URL");
+check(/Sitemap: https:\/\/themaxsmith\.com\/sitemap\.xml/.test(readFileSync(join(site, "robots.txt"), "utf8")), "robots.txt points to sitemap");
+check(readFileSync(join(site, "CNAME"), "utf8").trim() === "themaxsmith.com", "CNAME is themaxsmith.com");
+
+const weight = ["index.html", "styles.css", "main.js", "fonts/host-grotesk.woff2", "img/max-smith-800.webp"]
+  .reduce((n, f) => n + statSync(join(site, f)).size, 0);
+check(weight < 200_000, "first view under 200 KB", `${Math.round(weight / 1024)} KB`);
+
+// ---------- report ----------
+for (const f of failures) console.log(`FAIL  ${f}`);
+console.log(`${passes.length} passed, ${failures.length} failed`);
+process.exit(failures.length ? 1 : 0);

@@ -21,7 +21,7 @@
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Max Smith, software engineer">
+  <meta property="og:image:alt" content="Max Smith, software engineer, above Carmel Bay, California">
   <meta property="profile:first_name" content="Max">
   <meta property="profile:last_name" content="Smith">
   <meta property="profile:username" content="themaxsmith">
@@ -29,7 +29,7 @@
   <meta name="twitter:title" content="Max Smith">
   <meta name="twitter:description" content="Software engineer in Mountain View, California. Previously PlayStation. Founder of SeasonCast.">
   <meta name="twitter:image" content="https://themaxsmith.com/img/og.jpg">
-  <meta name="twitter:image:alt" content="Max Smith, software engineer">
+  <meta name="twitter:image:alt" content="Max Smith, software engineer, above Carmel Bay, California">
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -71,6 +71,7 @@
         "givenName": "Maxwell",
         "familyName": "Smith",
         "url": "https://themaxsmith.com/",
+        "image": "https://themaxsmith.com/img/carmel-lg.jpg",
         "description": "Software engineer in Mountain View, California, in the San Francisco Bay Area. From Ankeny, Iowa. Previously PlayStation in San Francisco. Founder of SeasonCast.",
         "jobTitle": "Software Engineer",
         "hasOccupation": { "@type": "Occupation", "name": "Software Engineer" },
@@ -122,12 +123,57 @@
 
     <main id="main" tabindex="-1">
       <section class="intro" aria-label="About">
-        <p class="lead" style="--i: 1">I’m a software engineer at Apple, living in Mountain View. Before that I spent three years at PlayStation in San&nbsp;Francisco, on its web, mobile and desktop apps.</p>
+        <p class="lead" style="--i: 1">I’m a software engineer at Apple, living in Mountain View. Before that I spent three years at PlayStation in San&nbsp;Francisco, where I went from intern to tech lead.</p>
         <p style="--i: 2">I’m from Ankeny, Iowa. In 2019, the year I finished high school, I started SeasonCast, a live-streaming platform for high school and youth sports, and wrote all seven of its codebases myself, from the iOS and Android apps to a C++ media server. It grew to 300,000 monthly users and 6,000 teams a year, and held 99.995% uptime for more than three years.</p>
         <p style="--i: 3">On personal projects I work with AI coding agents and hold their work to the same bar as anyone’s: a small ticket, a check that has to pass, and a review before it merges.</p>
       </section>
 
-      <section class="list" id="work" aria-labelledby="work-h" style="--i: 4">
+      <section class="photos" aria-label="Photos" style="--i: 4">
+        <ul class="strip">
+          <li>
+            <figure>
+              <picture>
+                <source type="image/webp" srcset="/img/carmel-sm.webp 480w, /img/carmel-lg.webp 544w" sizes="(min-width: 760px) 232px, 70vw">
+                <img src="/img/carmel-lg.jpg" srcset="/img/carmel-sm.jpg 480w, /img/carmel-lg.jpg 544w" sizes="(min-width: 760px) 232px, 70vw"
+                     width="544" height="680" alt="Max Smith on a terrace above Carmel Bay, California, at golden hour" loading="lazy" decoding="async">
+              </picture>
+              <figcaption>Carmel Bay, California</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <picture>
+                <source type="image/webp" srcset="/img/iowa-sm.webp 480w, /img/iowa-lg.webp 768w" sizes="(min-width: 760px) 232px, 70vw">
+                <img src="/img/iowa-lg.jpg" srcset="/img/iowa-sm.jpg 480w, /img/iowa-lg.jpg 768w" sizes="(min-width: 760px) 232px, 70vw"
+                     width="768" height="960" alt="A red barn and grain bins on a green hill in Iowa at dusk" loading="lazy" decoding="async">
+              </picture>
+              <figcaption>Iowa</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <picture>
+                <source type="image/webp" srcset="/img/sf-sm.webp 480w, /img/sf-lg.webp 768w" sizes="(min-width: 760px) 232px, 70vw">
+                <img src="/img/sf-lg.jpg" srcset="/img/sf-sm.jpg 480w, /img/sf-lg.jpg 768w" sizes="(min-width: 760px) 232px, 70vw"
+                     width="768" height="960" alt="San Francisco rooftops at sunset, looking north to the Golden Gate" loading="lazy" decoding="async">
+              </picture>
+              <figcaption>San Francisco</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <picture>
+                <source type="image/webp" srcset="/img/tahoe-sm.webp 480w, /img/tahoe-lg.webp 768w" sizes="(min-width: 760px) 232px, 70vw">
+                <img src="/img/tahoe-lg.jpg" srcset="/img/tahoe-sm.jpg 480w, /img/tahoe-lg.jpg 768w" sizes="(min-width: 760px) 232px, 70vw"
+                     width="768" height="960" alt="Lake Tahoe from the top of a ski run" loading="lazy" decoding="async">
+              </picture>
+              <figcaption>Lake Tahoe</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </section>
+
+      <section class="list" id="work" aria-labelledby="work-h" style="--i: 5">
         <h2 class="label" id="work-h">Work</h2>
         <ol class="roles">
           <li class="role">
@@ -141,10 +187,26 @@
           <li class="role">
             <h3 class="role-org">PlayStation</h3>
             <div class="role-meta">
-              <p class="role-title">Software Engineer II</p>
               <p class="role-place">San Francisco, California</p>
             </div>
             <p class="role-when"><time datetime="2022-05">2022</time>–<time datetime="2025-05">2025</time></p>
+            <ol class="steps" aria-label="Roles at PlayStation, most recent first">
+              <li class="step">
+                <p class="step-title">Software Engineer II</p>
+                <p class="step-when"><time datetime="2023-10">2023</time>–<time datetime="2025-05">2025</time></p>
+                <p class="step-desc">Technical lead for a PlayStation Network feature. Shipped across the web, mobile and desktop apps in React and React Native.</p>
+              </li>
+              <li class="step">
+                <p class="step-title">Software Engineer I</p>
+                <p class="step-when"><time datetime="2023-01">2023</time></p>
+                <p class="step-desc">Features for the PlayStation App and a React Native desktop app.</p>
+              </li>
+              <li class="step">
+                <p class="step-title">Software Engineering Intern</p>
+                <p class="step-when"><time datetime="2022-05">2022</time></p>
+                <p class="step-desc">Built and launched a new customer-facing PlayStation Network app, full stack.</p>
+              </li>
+            </ol>
           </li>
           <li class="role">
             <h3 class="role-org">SeasonCast</h3>
@@ -153,19 +215,39 @@
               <p class="role-place">Ankeny, Iowa</p>
             </div>
             <p class="role-when"><time datetime="2019-05">2019</time>–<time datetime="2024-06">2024</time></p>
+            <p class="role-desc">First place, best student-owned business, Iowa State University, 2021.</p>
           </li>
           <li class="role">
-            <h3 class="role-org">Hy-Vee, Polaris, Tero International</h3>
+            <h3 class="role-org">Hy-Vee</h3>
             <div class="role-meta">
               <p class="role-title">Software Engineering Intern</p>
-              <p class="role-place">Iowa and Minnesota</p>
+              <p class="role-place">Des Moines, Iowa</p>
             </div>
-            <p class="role-when"><time datetime="2019-05">2019</time>–<time datetime="2021-08">2021</time></p>
+            <p class="role-when"><time datetime="2021-05">2021</time></p>
+            <p class="role-desc">Product pages and search for the online grocery site and app behind 245+ stores.</p>
+          </li>
+          <li class="role">
+            <h3 class="role-org">Polaris</h3>
+            <div class="role-meta">
+              <p class="role-title">Software Developer Intern</p>
+              <p class="role-place">Medina, Minnesota</p>
+            </div>
+            <p class="role-when"><time datetime="2020-05">2020</time></p>
+            <p class="role-desc">Wrote the NFC library that programs the emblem on Polaris snowmobiles, RZRs and ATVs from 2022 on.</p>
+          </li>
+          <li class="role">
+            <h3 class="role-org">Tero International</h3>
+            <div class="role-meta">
+              <p class="role-title">Software Developer Intern</p>
+              <p class="role-place">Clive, Iowa</p>
+            </div>
+            <p class="role-when"><time datetime="2019-05">2019</time></p>
+            <p class="role-desc">A client onboarding system and a digital quiz tool, in PHP and JavaScript.</p>
           </li>
         </ol>
       </section>
 
-      <section class="list" id="education" aria-labelledby="education-h" style="--i: 5">
+      <section class="list" id="education" aria-labelledby="education-h" style="--i: 6">
         <h2 class="label" id="education-h">Education</h2>
         <ol class="roles">
           <li class="role">
@@ -188,7 +270,7 @@
       </section>
     </main>
 
-    <footer class="foot" id="contact" style="--i: 6">
+    <footer class="foot" id="contact" style="--i: 7">
       <p><a class="js-email" href="#contact"><span class="email-text">themaxsmith [at] icloud [dot] com</span></a></p>
       <p class="fine">© <span class="js-year">2026</span> Max Smith</p>
     </footer>

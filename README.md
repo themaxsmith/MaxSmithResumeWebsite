@@ -1,6 +1,6 @@
 # themaxsmith.com
 
-Personal site of Max Smith: one static page, one typeface, one column on warm paper, light only. Hierarchy comes from weight and tone, not size; the only motion is a soft entrance. No framework and no build step, so search engines and AI answer engines read the full page without running JavaScript.
+Personal site of Max Smith: a résumé told as a life story. One static page, one typeface, warm paper, light only. Each chapter is years | words | photo on desktop and stacks on phones; Max's own photos, graded to match. No framework and no build step, so search engines and AI answer engines read the full page without running JavaScript.
 
 ## Layout
 
@@ -9,7 +9,7 @@ Personal site of Max Smith: one static page, one typeface, one column on warm pa
 | `site/index.html` | The page, including meta tags and `Person` / `ProfilePage` structured data |
 | `site/styles.css` | All styles. Light and dark follow the system; motion respects reduced-motion |
 | `site/main.js` | Email link assembly and footer year |
-| `site/img/` | Seven graded photos, 2016 to 2026 (`*-sm`/`*-lg`, WebP + JPEG), and the social card `og.jpg` |
+| `site/img/` | Twelve graded photos (`*-sm`/`*-lg`, WebP + JPEG) and the social card `og.jpg` |
 | `site/llms.txt`, `robots.txt`, `sitemap.xml` | What crawlers and AI assistants read |
 | `scripts/check.mjs` | Pre-publish check: guardrails plus search basics. Exits 1 on any failure |
 | `scripts/guardrails.json` | Words and patterns that must never appear on the public site |
@@ -25,7 +25,7 @@ npm run deploy   # check, then publish site/ to the gh-pages branch (themaxsmith
 ## Rules for anything public (Max works at Apple)
 
 - The Apple role is title, city and dates only. No team, project, tool or product names, nothing that is not already public, no Apple logos or imagery, nothing that reads as speaking for Apple.
-- The AI wording is about how Max works, never about his employer's work. It must not share a sentence with the Apple role. **needs Apple check** before it goes public.
+- If AI wording ever returns, it describes Max's own projects only and stays out of any sentence about his current employer; the check enforces this. None is on the page today.
 - Photos: Max's own. Max alone or no people at all; no Apple campus or offices; nothing that shows where he lives; badges and screens softened. Converted to sRGB, re-encoded without metadata (the check fails on EXIF/GPS).
 - SeasonCast is shown as past work (2019–2024) with no store or company links.
 - No phone number, and the email address is assembled in JavaScript.

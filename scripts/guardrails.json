@@ -43,7 +43,7 @@
     "index.html": [
       "\"worksFor\": { \"@type\": \"Organization\", \"name\": \"Apple\" }",
       "I’m a software engineer at Apple, living in Mountain View.",
-      "Apple Software Engineer Cupertino, California 2025 -now"
+      "Apple 2025 -now Software Engineer · Cupertino, California"
     ],
     "llms.txt": [
       "Current role: Software Engineer at Apple (since 2025). No details about current work are published here."

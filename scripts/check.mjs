@@ -86,10 +86,10 @@ for (const f of files) {
 if (rules.employer_role_must_be_bare) {
   // The current employer's role is title, place and dates only: no expandable details.
   const org = rules.employer_role_must_be_bare;
-  const li = [...html.matchAll(/<li class="role[^"]*">([\s\S]*?)<\/li>\s*(?=<li|<\/ol>)/g)].map((m) => m[1]);
-  const role = li.find((x) => x.includes(`role-org">${org}<`));
+  const li = [...html.matchAll(/<li class="(?:role|chapter)[^"]*">([\s\S]*?)<\/li>\s*(?=<li|<\/ol>)/g)].map((m) => m[1]);
+  const role = li.find((x) => x.includes(`role-org">${org}<`) || x.includes(`ch-title">${org}<`));
   check(Boolean(role), `${org} role present`);
-  check(role && !/<details|role-desc/.test(role), `${org} role has no details`);
+  check(role && !/<details|role-desc|ch-note|class="(?:facts|steps|jobs)"/.test(role), `${org} role has no details`);
 }
 
 // ---------- 2. search basics ----------

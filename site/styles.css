@@ -217,7 +217,8 @@ main:focus { outline: none; }
   animation: draw 2.4s var(--ease-out) .9s forwards;
 }
 .route-distance {
-  grid-column: 2;
+  grid-column: 1 / -1;
+  white-space: nowrap;
   margin-top: .5rem;
   text-align: center;
   opacity: 0;
@@ -250,6 +251,14 @@ main:focus { outline: none; }
   font-weight: 550;
   letter-spacing: -.005em;
 }
+.bio {
+  max-width: 38rem;
+  font-size: 1.1875rem;
+  line-height: 1.5;
+  letter-spacing: -.01em;
+  text-wrap: pretty;
+}
+
 .stack {
   padding-top: 1.5rem;
   border-top: 1px solid var(--hair);

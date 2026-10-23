@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Max Smith — Software Engineer, San Francisco Bay Area</title>
-  <meta name="description" content="Max (Maxwell) Smith is a software engineer in Mountain View, California, by way of Iowa. Previously PlayStation in San Francisco and founder of SeasonCast.">
+  <title>Max Smith — Software Engineer, Mountain View, California</title>
+  <meta name="description" content="Max (Maxwell) Smith is a software engineer in Mountain View, in the San Francisco Bay Area, by way of Ankeny, Iowa. Previously PlayStation. Founded SeasonCast.">
   <link rel="canonical" href="https://themaxsmith.com/">
   <meta name="author" content="Max Smith">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f3f4f1" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f1010" media="(prefers-color-scheme: dark)">
@@ -14,10 +15,11 @@
   <meta property="og:type" content="profile">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="Max Smith">
-  <meta property="og:title" content="Max Smith — Software Engineer, San Francisco Bay Area">
+  <meta property="og:title" content="Max Smith — Software Engineer, Mountain View, California">
   <meta property="og:description" content="Software engineer in Mountain View, California, by way of Iowa.">
   <meta property="og:url" content="https://themaxsmith.com/">
   <meta property="og:image" content="https://themaxsmith.com/img/og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Max Smith, software engineer in the San Francisco Bay Area, by way of Iowa">
@@ -39,10 +41,19 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": "https://themaxsmith.com/#site",
+        "url": "https://themaxsmith.com/",
+        "name": "Max Smith",
+        "inLanguage": "en-US",
+        "author": { "@id": "https://themaxsmith.com/#max" }
+      },
+      {
         "@type": "ProfilePage",
         "@id": "https://themaxsmith.com/#page",
         "url": "https://themaxsmith.com/",
-        "name": "Max Smith — Software Engineer, San Francisco Bay Area",
+        "name": "Max Smith — Software Engineer, Mountain View, California",
+        "isPartOf": { "@id": "https://themaxsmith.com/#site" },
         "inLanguage": "en-US",
         "dateModified": "2026-10-23",
         "mainEntity": { "@id": "https://themaxsmith.com/#max" }
@@ -55,7 +66,9 @@
         "givenName": "Maxwell",
         "familyName": "Smith",
         "url": "https://themaxsmith.com/",
+        "description": "Software engineer in Mountain View, California, in the San Francisco Bay Area. Grew up in Ankeny, Iowa; founded SeasonCast; studied computer science at Iowa State University.",
         "jobTitle": "Software Engineer",
+        "hasOccupation": { "@type": "Occupation", "name": "Software Engineer" },
         "worksFor": { "@type": "Organization", "name": "Apple" },
         "homeLocation": {
           "@type": "Place",
@@ -72,6 +85,15 @@
           "https://www.linkedin.com/in/themaxsmith/",
           "https://github.com/themaxsmith"
         ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://themaxsmith.com/#seasoncast",
+        "name": "SeasonCast",
+        "description": "Live-streaming platform for high school and youth sports, founded in Ankeny, Iowa.",
+        "foundingDate": "2019",
+        "founder": { "@id": "https://themaxsmith.com/#max" },
+        "location": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Ankeny", "addressRegion": "IA", "addressCountry": "US" } }
       }
     ]
   }
@@ -89,7 +111,7 @@
 
       <h1 class="name"><span>Max</span> <span>Smith</span></h1>
 
-      <p class="lede">Software engineer in the San&nbsp;Francisco Bay&nbsp;Area, by way of Iowa. <span>I build systems end to end, keep them running, and now work alongside AI agents.</span></p>
+      <p class="lede">Software engineer in the San&nbsp;Francisco Bay&nbsp;Area, by way of Iowa. <span>I build whole systems and keep them running. On my own projects, the rest of the team is AI agents.</span></p>
 
       <ul class="links" aria-label="Elsewhere">
         <li><a class="out" href="https://www.linkedin.com/in/themaxsmith/" rel="me">LinkedIn</a></li>
@@ -100,27 +122,34 @@
       <figure class="route" aria-label="About 1,540 miles from Iowa to the Bay Area">
         <span class="route-end">Mountain View</span>
         <span class="route-line" aria-hidden="true"></span>
-        <span class="route-end">Ames, Iowa</span>
-        <figcaption class="route-distance">1,539 miles as the crow flies</figcaption>
+        <span class="route-end">Ankeny, Iowa</span>
+        <figcaption class="route-distance">1,539 miles, as the crow flies</figcaption>
       </figure>
     </div>
   </header>
 
   <main class="wrap" id="main" tabindex="-1">
+    <section class="block" id="about" aria-labelledby="about-h">
+      <h2 class="block-label" id="about-h">About</h2>
+      <div class="principles">
+        <p class="bio reveal">Maxwell Smith on paper, Max everywhere else. I grew up in Ankeny, Iowa, and finished an associate’s degree the same month as high school. I studied computer science at Iowa State while running SeasonCast, moved to San&nbsp;Francisco in 2022 for PlayStation, and to Mountain View in 2025 for Apple.</p>
+      </div>
+    </section>
+
     <section class="block" id="approach" aria-labelledby="approach-h">
-      <h2 class="block-label" id="approach-h">Approach</h2>
+      <h2 class="block-label" id="approach-h">How I work</h2>
       <div class="principles">
         <div class="principle reveal">
-          <h3>End to end</h3>
-          <p>I started SeasonCast as a student and designed and wrote all seven of its codebases myself, from the iOS and Android apps to a custom C++ media server.</p>
+          <h3>The whole thing</h3>
+          <p>I started SeasonCast the summer I finished high school and wrote all seven codebases myself: the iOS and Android apps, the web app, the API, and a C++ media server. Six thousand teams a year streamed through it.</p>
         </div>
         <div class="principle reveal">
-          <h3>Built to stay up</h3>
-          <p>Three years at 99.995% uptime on servers I ran myself, which is less than 26 minutes of downtime a year. I like work where reliability is the feature.</p>
+          <h3>Up on Friday nights</h3>
+          <p>A high school football game doesn’t get a retry. SeasonCast ran three years at 99.995% uptime on servers I managed myself, under 26 minutes of downtime a year. That is still how I judge my work.</p>
         </div>
         <div class="principle reveal">
           <h3>Agents on the team</h3>
-          <p>I hand AI agents small, well-specified tickets with a check they have to pass, then review the result like a pull request. It’s the same discipline as before, with a faster team.</p>
+          <p>On my own projects I run a small team of AI agents. Each one gets a ticket small enough to finish, a check it has to pass, and a review before anything merges. Same discipline, faster team.</p>
         </div>
         <p class="stack reveal">TypeScript, React, React Native, Swift, Python, C++, Kubernetes</p>
       </div>

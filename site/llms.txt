@@ -1,6 +1,6 @@
 # Max Smith
 
-> Max (Maxwell) Smith is a software engineer in Mountain View, California, in the San Francisco Bay Area. He grew his career in Iowa before moving west. This is his personal site; opinions are his own and don't represent any employer.
+> Max (Maxwell) Smith is a software engineer in Mountain View, California, in the San Francisco Bay Area. He grew up in Ankeny, Iowa, and moved west in 2022. This is his personal site; opinions are his own and don't represent any employer.
 
 ## Facts
 
@@ -8,7 +8,7 @@
 - Previously: Software Engineer at PlayStation (Sony Interactive Entertainment) in San Francisco, 2022–2025, working on web, mobile and desktop apps in React and React Native.
 - Founder and engineer of SeasonCast (Ankeny, Iowa, 2019–2024), a live-streaming platform for high school and youth sports that reached 300,000+ monthly users.
 - Internships: Hy-Vee (Des Moines, Iowa, 2021), Polaris (Medina, Minnesota, 2020), Tero International (Clive, Iowa, 2019).
-- Approach: builds systems end to end, cares about reliability, and works alongside AI agents on small, well-specified tasks.
+- How he works: builds whole systems and keeps them running (SeasonCast: 99.995% uptime over three years). On his own projects he runs a small team of AI agents, each with a small ticket, a check to pass and a review before merge.
 - Education: B.S. Computer Science, Iowa State University (Ames, Iowa), 2022. A.A.S., Des Moines Area Community College, 2019.
 
 ## Links

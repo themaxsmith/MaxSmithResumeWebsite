@@ -62,10 +62,15 @@ if (process.argv.includes("--require-private")) {
   check(Boolean(privateRules), "private guardrails loaded (required for deploy)", privateRules ? "" : `missing ${privatePath}`);
 }
 
-// Every mention of the current employer must be one of the approved sentences.
-for (const [file, allowed] of Object.entries(rules.employer_mentions_allowed || {})) {
-  let text = normalize(readFileSync(join(site, file), "utf8"));
-  for (const phrase of allowed) {
+// Every mention of the current employer, in any public file, in visible text, metadata or alt text,
+// must be one of the approved sentences.
+const withAttrs = (raw) => raw + "\n" + [...raw.matchAll(/\b(?:content|alt|title|aria-label|aria-description)="([^"]*)"/g)].map((m) => m[1]).join("\n");
+const allowedMentions = rules.employer_mentions_allowed || {};
+for (const path of textFiles) {
+  const file = relative(site, path);
+  if (file.startsWith("..")) continue;                                  // README documents the rules
+  let text = normalize(withAttrs(readFileSync(path, "utf8")));
+  for (const phrase of allowedMentions[file] || []) {
     check(text.includes(phrase), `approved employer mention still present in ${file}`, phrase);
     text = text.split(phrase).join(" ");
   }
@@ -100,7 +105,7 @@ check(title && title.length <= 65, "title length ≤ 65", `${title?.length}`);
 
 const desc = tag(/<meta name="description" content="([^"]*)"/);
 check(desc && desc.length >= 70 && desc.length <= 160, "description 70–160 chars", `${desc?.length}`);
-for (const word of ["Max", "Smith", "Mountain View", "Iowa", "San Francisco"]) {
+for (const word of ["Max", "Smith", "Maxwell", "Mountain View", "Bay Area", "Iowa", "San Francisco"]) {
   check(desc?.includes(word), `description mentions ${word}`);
 }
 
@@ -130,6 +135,16 @@ check(person?.name === "Max Smith", "Person.name is Max Smith");
 check(person?.alternateName?.includes("Maxwell Smith"), "Person.alternateName has Maxwell Smith");
 check((person?.sameAs || []).length >= 2, "Person.sameAs has profiles");
 
+// Google only uses structured data that matches what a visitor can see.
+const visible = normalize(html.slice(html.indexOf("<body")));
+for (const o of [person?.worksFor, ...(person?.alumniOf || []), ...[].concat(person?.memberOf || [])].filter(Boolean)) {
+  check([o.name, ...[].concat(o.alternateName || [])].some((n) => n && visible.includes(n)), "JSON-LD organization is visible on the page", o.name);
+}
+for (const a of [].concat(person?.award || [])) check(visible.includes(a), "JSON-LD award is visible on the page", a);
+check(graph.some((n) => n["@type"] === "WebSite" && n.name === "Max Smith"), "JSON-LD WebSite names the site Max Smith");
+check((person?.image || []).length >= 3, "Person has square, 4:3 and 16:9 images");
+check(!/\b(AI|LLMs?|agents?)\b/.test(JSON.stringify(person || {})), "Person data has no AI wording");
+
 // every local asset the page references exists
 const refs = [...html.matchAll(/(?:href|src|srcset|imagesrcset|content)="([^"]+)"/g)]
   .flatMap((m) => m[1].split(",").map((s) => s.trim().split(/\s+/)[0]))
@@ -147,6 +162,21 @@ const modified = (graph.find((n) => n["@type"] === "ProfilePage") || {}).dateMod
 check(lastmod && lastmod === modified, "sitemap lastmod matches JSON-LD dateModified", `${lastmod} vs ${modified}`);
 check(/Sitemap: https:\/\/themaxsmith\.com\/sitemap\.xml/.test(readFileSync(join(site, "robots.txt"), "utf8")), "robots.txt points to sitemap");
 check(readFileSync(join(site, "CNAME"), "utf8").trim() === "themaxsmith.com", "CNAME is themaxsmith.com");
+
+// Crawlers and assistants: nothing blocked, the files they read exist and link to real files.
+const robots = readFileSync(join(site, "robots.txt"), "utf8");
+check(!/^\s*Disallow:\s*\/\S*\s*$/m.test(robots), "robots.txt blocks nothing");
+for (const bot of ["Googlebot", "Bingbot", "Applebot", "OAI-SearchBot", "Claude-SearchBot", "PerplexityBot"]) check(robots.includes(bot), `robots.txt allows ${bot}`);
+const llms = readFileSync(join(site, "llms.txt"), "utf8");
+check(/^# Max Smith\n\n> /.test(llms), "llms.txt opens with # Max Smith and a summary");
+const llmsFull = existsSync(join(site, "llms-full.txt")) ? readFileSync(join(site, "llms-full.txt"), "utf8") : "";
+check(Boolean(llmsFull), "llms-full.txt exists");
+const ownUrls = [ld, sitemap, llms, llmsFull]
+  .flatMap((t) => [...t.matchAll(/https:\/\/themaxsmith\.com(\/[^\s"<>)#]*)/g)].map((m) => m[1].replace(/[.,;:]+$/, "")))
+  .filter((u) => u !== "/");
+for (const u of new Set(ownUrls)) check(existsSync(join(site, u)) && statSync(join(site, u)).isFile(), `linked file exists ${u}`);
+const key = (readFileSync(join(root, "scripts", "indexnow.mjs"), "utf8").match(/const KEY = "([0-9a-f]{32})"/) || [])[1];
+check(Boolean(key) && existsSync(join(site, `${key}.txt`)) && readFileSync(join(site, `${key}.txt`), "utf8").trim() === key, "IndexNow key file matches the deploy script");
 
 const weight = ["index.html", "styles.css", "main.js", "fonts/host-grotesk.woff2"]
   .reduce((n, f) => n + statSync(join(site, f)).size, 0);

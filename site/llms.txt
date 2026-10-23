@@ -1,17 +1,20 @@
 # Max Smith
 
-> Max (Maxwell) Smith is a software engineer in Mountain View, California, in the San Francisco Bay Area. He grew up in Ankeny, Iowa, and moved west in 2022. This is his personal site; opinions are his own and don't represent any employer.
+> Max (Maxwell) Smith is a software engineer at Apple in Mountain View, California, in the San Francisco Bay Area. He grew up in Ankeny, Iowa, founded SeasonCast, and spent three years at PlayStation in San Francisco.
 
-## Facts
+This is his personal site and résumé. Many people are named Max Smith; this one is linked from https://www.linkedin.com/in/themaxsmith/ and https://github.com/themaxsmith. Opinions here are his own and don't represent any employer.
 
-- Current role: Software Engineer at Apple (since 2025). No details about current work are published here.
-- Previously: PlayStation (Sony Interactive Entertainment) in San Francisco, 2022–2025. Software Engineering Intern (2022), Software Engineer I (2023), Software Engineer II (2023–2025). Web, mobile and desktop apps in React and React Native.
-- Founder and engineer of SeasonCast (Ankeny, Iowa, 2019–2024), a live-streaming platform for high school and youth sports. He wrote all seven codebases (iOS, Android, web, API, C++ media server). 300,000 monthly users, 6,000 teams a year, 99.995% uptime for more than three years.
-- Internships: Hy-Vee (Des Moines, Iowa, 2021; product pages and search for the online grocery site and app), Polaris (Medina, Minnesota, 2020; wrote the NFC library that programs the emblem on 2022 and later snowmobiles, RZRs and ATVs), Tero International (Clive, Iowa, 2019).
-- Education: B.S. Computer Science, Iowa State University (Ames, Iowa), 2022. A.A.S., Des Moines Area Community College, 2019, completed while in high school.
+## Résumé
 
-## Links
+- [Full résumé as text](https://themaxsmith.com/llms-full.txt): work, internships, education and skills
+- [Website](https://themaxsmith.com/): the same résumé with photos
 
-- [Website](https://themaxsmith.com/)
+## Profiles
+
 - [LinkedIn](https://www.linkedin.com/in/themaxsmith/)
 - [GitHub](https://github.com/themaxsmith)
+
+## Optional
+
+- Names: Max Smith, Maxwell Smith, Max (Maxwell) Smith, themaxsmith
+- Places: Mountain View, California; San Francisco Bay Area; San Francisco; Ankeny, Iowa; Ames, Iowa

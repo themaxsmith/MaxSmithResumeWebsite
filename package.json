@@ -7,7 +7,8 @@
   "scripts": {
     "check": "node scripts/check.mjs",
     "serve": "python3 -m http.server 8080 --directory site",
-    "deploy": "node scripts/check.mjs --require-private && gh-pages --dist site"
+    "deploy": "node scripts/check.mjs --require-private && gh-pages --dist site && node scripts/indexnow.mjs",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"

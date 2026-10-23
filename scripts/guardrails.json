@@ -41,12 +41,18 @@
   "employer_role_must_be_bare": "Apple",
   "employer_mentions_allowed": {
     "index.html": [
-      "\"worksFor\": { \"@type\": \"Organization\", \"name\": \"Apple\" }",
       "I’m a software engineer at Apple, living in Mountain View.",
-      "Apple 2025 -now Software Engineer · Cupertino, California"
+      "Apple 2025 -now Software Engineer · Cupertino, California",
+      "Software Engineer at Apple, Mountain View, CA",
+      "software engineer at Apple in Mountain View, California",
+      "\"name\": \"Apple\""
     ],
     "llms.txt": [
-      "Current role: Software Engineer at Apple (since 2025). No details about current work are published here."
+      "software engineer at Apple in Mountain View, California"
+    ],
+    "llms-full.txt": [
+      "software engineer at Apple in Mountain View, California",
+      "Apple - Software Engineer, Cupertino, California, May 2025-present. Nothing about current work is published."
     ]
   }
 }

@@ -143,6 +143,9 @@ for (const ref of new Set(refs)) {
 
 const sitemap = readFileSync(join(site, "sitemap.xml"), "utf8");
 check(sitemap.includes(`<loc>${canonical}</loc>`), "sitemap lists the canonical URL");
+const lastmod = (sitemap.match(/<lastmod>([^<]+)<\/lastmod>/) || [])[1];
+const modified = (graph.find((n) => n["@type"] === "ProfilePage") || {}).dateModified;
+check(lastmod && lastmod === modified, "sitemap lastmod matches JSON-LD dateModified", `${lastmod} vs ${modified}`);
 check(/Sitemap: https:\/\/themaxsmith\.com\/sitemap\.xml/.test(readFileSync(join(site, "robots.txt"), "utf8")), "robots.txt points to sitemap");
 check(readFileSync(join(site, "CNAME"), "utf8").trim() === "themaxsmith.com", "CNAME is themaxsmith.com");
 

@@ -88,6 +88,8 @@ a {
 }
 a:hover { text-decoration-color: currentColor; }
 
+main:focus { outline: none; }
+
 :focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 3px;
@@ -248,6 +250,13 @@ a:hover { text-decoration-color: currentColor; }
   font-weight: 550;
   letter-spacing: -.005em;
 }
+.stack {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--hair);
+  color: var(--muted);
+  font-size: .9375rem;
+}
+
 .principle p {
   margin-top: .35rem;
   text-wrap: pretty;
@@ -328,10 +337,15 @@ a:hover { text-decoration-color: currentColor; }
   .route-distance { opacity: 1; }
 }
 
+/* the grain's blend mode is the costly part on phones: keep the texture, skip the blend */
+@media (max-width: 760px) {
+  body::after { mix-blend-mode: normal; opacity: calc(var(--grain-opacity) * .5); }
+}
+
 /* ---------- print ---------- */
 
 @media print {
-  :root { --paper: #fff; --ink: #000; --muted: #444; --hair: #bbb; }
+  :root { color-scheme: light; --paper: #fff; --ink: #000; --muted: #444; --hair: #bbb; }
   body::after, .hero::before, .route, .topline, .skip { display: none; }
   .hero-inner { min-height: 0; }
   .name { font-size: 3rem; margin-top: 0; }
@@ -339,4 +353,7 @@ a:hover { text-decoration-color: currentColor; }
   .block { padding-block: 1.25rem; break-inside: avoid; }
   .reveal { animation: none; }
   a { text-decoration: none; }
+  .links a::after, .links a.out::after { content: "  " attr(href); color: #444; transform: none; }
+  .links a.js-email::after { content: none; }
+  .links { gap: .25rem 1.5rem; }
 }

@@ -1,19 +1,47 @@
 {
   "_why": "Public rules for what must never appear on the site. Specific private terms live outside this public repo, in the file named by THEMAXSMITH_PRIVATE_GUARDRAILS (default ~/.config/themaxsmith/guardrails.private.json, same shape). Never commit private terms here: this repository is public.",
   "forbidden": [
-    { "pattern": "unannounced|confidential|internal only|under nda|codename", "reason": "never hint at undisclosed work" },
-    { "pattern": "\\uF8FF", "reason": "logo glyph" },
-    { "pattern": "apple\\.com", "reason": "no employer links" },
-    { "pattern": "\\b\\d{3}[-. )]+\\d{3}[-. ]\\d{4}\\b", "reason": "phone number" },
-    { "pattern": "[a-z0-9._%+-]+@[a-z0-9-]+\\.[a-z]{2,}", "reason": "email addresses are assembled in JavaScript, never left in a file" },
-    { "pattern": "seasoncast\\.com|apps\\.apple\\.com|play\\.google\\.com", "reason": "SeasonCast is shown as past work, without links" },
-    { "pattern": "instagram\\.com", "reason": "personal account stays separate until Max decides" }
+    {
+      "pattern": "unannounced|confidential|internal only|under nda|codename",
+      "reason": "never hint at undisclosed work"
+    },
+    {
+      "pattern": "\\uF8FF",
+      "reason": "logo glyph"
+    },
+    {
+      "pattern": "apple\\.com",
+      "reason": "no employer links"
+    },
+    {
+      "pattern": "\\b\\d{3}[-. )]+\\d{3}[-. ]\\d{4}\\b",
+      "reason": "phone number"
+    },
+    {
+      "pattern": "[a-z0-9._%+-]+@[a-z0-9-]+\\.[a-z]{2,}",
+      "reason": "email addresses are assembled in JavaScript, never left in a file"
+    },
+    {
+      "pattern": "seasoncast\\.com|apps\\.apple\\.com|play\\.google\\.com",
+      "reason": "SeasonCast is shown as past work, without links"
+    },
+    {
+      "pattern": "instagram\\.com",
+      "reason": "personal account stays separate until Max decides"
+    },
+    {
+      "pattern": "(?<![\\w/-])apple(?![\\w-])[^.!?]{0,200}\\b(ai|llm|agents?|machine learning)\\b|\\b(ai|llm|agents?|machine learning)\\b[^.!?]{0,200}(?<![\\w/-])apple(?![\\w-])",
+      "reason": "AI wording never sits in the same sentence as the Apple role (needs Apple check)"
+    },
+    {
+      "pattern": "apple intelligence|\\bsiri\\b|core ?ml",
+      "reason": "no Apple AI product names; nothing that reads as Apple work"
+    }
   ],
   "employer_role_must_be_bare": "Apple",
   "employer_mentions_allowed": {
     "index.html": [
       "\"worksFor\": { \"@type\": \"Organization\", \"name\": \"Apple\" }",
-      "I’m a software engineer at Apple, living in Mountain View.",
       "Apple Software Engineer Cupertino, California 2025 -now"
     ],
     "llms.txt": [

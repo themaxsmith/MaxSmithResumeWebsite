@@ -87,10 +87,10 @@ for (const f of files) {
 if (rules.employer_role_must_be_bare) {
   // The current employer's role is title, place and dates only: no expandable details.
   const org = rules.employer_role_must_be_bare;
-  const li = [...html.matchAll(/<li class="role">([\s\S]*?)<\/li>\s*(?=<li|<\/ol>)/g)].map((m) => m[1]);
+  const li = [...html.matchAll(/<li class="role[^"]*">([\s\S]*?)<\/li>\s*(?=<li|<\/ol>)/g)].map((m) => m[1]);
   const role = li.find((x) => x.includes(`role-org">${org}<`));
   check(Boolean(role), `${org} role present`);
-  check(role && !/<details|role-body/.test(role), `${org} role has no details`);
+  check(role && !/<details|role-desc/.test(role), `${org} role has no details`);
 }
 
 // ---------- 2. search basics ----------
@@ -146,7 +146,7 @@ check(sitemap.includes(`<loc>${canonical}</loc>`), "sitemap lists the canonical 
 check(/Sitemap: https:\/\/themaxsmith\.com\/sitemap\.xml/.test(readFileSync(join(site, "robots.txt"), "utf8")), "robots.txt points to sitemap");
 check(readFileSync(join(site, "CNAME"), "utf8").trim() === "themaxsmith.com", "CNAME is themaxsmith.com");
 
-const weight = ["index.html", "styles.css", "main.js", "fonts/host-grotesk.woff2", "img/max-smith-800.webp"]
+const weight = ["index.html", "styles.css", "main.js", "fonts/host-grotesk.woff2"]
   .reduce((n, f) => n + statSync(join(site, f)).size, 0);
 check(weight < 200_000, "first view under 200 KB", `${Math.round(weight / 1024)} KB`);
 

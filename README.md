@@ -1,6 +1,6 @@
 # themaxsmith.com
 
-Personal site of Max Smith: one static page, one typeface, one moment of motion. No framework and no build step, so search engines and AI answer engines read the full page without running JavaScript.
+Personal site of Max Smith: one static page, one typeface, no photo, a quiet glow and a name that settles into place. No framework and no build step, so search engines and AI answer engines read the full page without running JavaScript.
 
 ## Layout
 
@@ -8,8 +8,8 @@ Personal site of Max Smith: one static page, one typeface, one moment of motion.
 | --- | --- |
 | `site/index.html` | The page, including meta tags and `Person` / `ProfilePage` structured data |
 | `site/styles.css` | All styles. Light and dark follow the system; motion respects reduced-motion |
-| `site/main.js` | Email link assembly, footer year, print opens every role |
-| `site/img/` | Graded portrait (`max-smith-480/800`, WebP + JPEG) and the social card `og.jpg` |
+| `site/main.js` | Email link assembly, footer year, Mountain View clock |
+| `site/img/og.jpg` | The social card (typographic, no photo) |
 | `site/llms.txt`, `robots.txt`, `sitemap.xml` | What crawlers and AI assistants read |
 | `scripts/check.mjs` | Pre-publish check: guardrails plus search basics. Exits 1 on any failure |
 | `scripts/guardrails.json` | Words and patterns that must never appear on the public site |
@@ -25,6 +25,7 @@ npm run deploy   # check, then publish site/ to the gh-pages branch (themaxsmith
 ## Rules for anything public (Max works at Apple)
 
 - The Apple role is title, city and dates only. No team, project, tool or product names, nothing that is not already public, no Apple logos or imagery, nothing that reads as speaking for Apple.
+- The AI wording is about how Max works, never about his employer's work. It must not share a sentence with the Apple role. **needs Apple check** before it goes public.
 - SeasonCast is shown as past work (2019–2024) with no store or company links.
 - No phone number, and the email address is assembled in JavaScript.
 - Add a pattern to `scripts/guardrails.json` before adding new content of a new kind. `npm run check` must pass before `npm run deploy`.

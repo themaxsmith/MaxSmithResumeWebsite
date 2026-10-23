@@ -20,7 +20,7 @@
   <meta property="og:image" content="https://themaxsmith.com/img/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Max Smith, software engineer in the San Francisco Bay Area">
+  <meta property="og:image:alt" content="Max Smith, software engineer in the San Francisco Bay Area, by way of Iowa">
   <meta property="profile:first_name" content="Max">
   <meta property="profile:last_name" content="Smith">
   <meta property="profile:username" content="themaxsmith">
@@ -32,7 +32,6 @@
   <link rel="manifest" href="/site.webmanifest">
 
   <link rel="preload" href="/fonts/host-grotesk.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" as="image" href="/img/max-smith-800.webp" imagesrcset="/img/max-smith-480.webp 480w, /img/max-smith-800.webp 800w" imagesizes="(min-width: 760px) 340px, 54vw" fetchpriority="high">
   <link rel="stylesheet" href="/styles.css">
 
   <script type="application/ld+json">
@@ -56,7 +55,6 @@
         "givenName": "Maxwell",
         "familyName": "Smith",
         "url": "https://themaxsmith.com/",
-        "image": "https://themaxsmith.com/img/max-smith-800.jpg",
         "jobTitle": "Software Engineer",
         "worksFor": { "@type": "Organization", "name": "Apple" },
         "homeLocation": {
@@ -69,7 +67,7 @@
             "address": { "@type": "PostalAddress", "addressLocality": "Ames", "addressRegion": "IA", "addressCountry": "US" } },
           { "@type": "CollegeOrUniversity", "name": "Des Moines Area Community College" }
         ],
-        "knowsAbout": ["Software engineering", "React", "React Native", "TypeScript", "Swift", "iOS development", "Live video streaming", "Kubernetes"],
+        "knowsAbout": ["Software engineering", "AI agents", "React", "React Native", "TypeScript", "Swift", "Live video streaming", "Kubernetes"],
         "sameAs": [
           "https://www.linkedin.com/in/themaxsmith/",
           "https://github.com/themaxsmith"
@@ -80,143 +78,113 @@
   </script>
 </head>
 <body>
-  <a class="skip" href="#about">Skip to content</a>
+  <a class="skip" href="#approach">Skip to content</a>
 
   <header class="hero">
-    <h1 class="name"><span>Max</span> <span>Smith</span></h1>
+    <div class="wrap hero-inner">
+      <p class="topline">
+        <span>Mountain View, California</span>
+        <span class="clock" aria-hidden="true"></span>
+      </p>
 
-    <figure class="portrait">
-      <picture>
-        <source type="image/webp" srcset="/img/max-smith-480.webp 480w, /img/max-smith-800.webp 800w" sizes="(min-width: 760px) 340px, 54vw">
-        <img src="/img/max-smith-800.jpg" srcset="/img/max-smith-480.jpg 480w, /img/max-smith-800.jpg 800w" sizes="(min-width: 760px) 340px, 54vw"
-             width="800" height="1000" alt="Portrait of Max Smith" fetchpriority="high" decoding="async">
-      </picture>
-    </figure>
+      <h1 class="name"><span>Max</span> <span>Smith</span></h1>
 
-    <p class="lede">Software engineer in the San&nbsp;Francisco Bay&nbsp;Area, by way of Iowa.</p>
+      <p class="lede">Software engineer in the San&nbsp;Francisco Bay&nbsp;Area, by way of Iowa. <span>I build systems end to end, keep them running, and now work alongside AI agents.</span></p>
 
-    <ul class="links" aria-label="Elsewhere">
-      <li><a href="https://www.linkedin.com/in/themaxsmith/" rel="me">LinkedIn</a></li>
-      <li><a href="https://github.com/themaxsmith" rel="me">GitHub</a></li>
-      <li><a class="js-email" href="#contact">Email</a></li>
-    </ul>
+      <ul class="links" aria-label="Elsewhere">
+        <li><a class="out" href="https://www.linkedin.com/in/themaxsmith/" rel="me">LinkedIn</a></li>
+        <li><a class="out" href="https://github.com/themaxsmith" rel="me">GitHub</a></li>
+        <li><a class="js-email" href="#contact">Email</a></li>
+      </ul>
 
-    <figure class="route" aria-label="About 1,538 miles from Iowa to the Bay Area">
-      <div class="route-end route-west">
-        <span class="route-place">Bay Area</span>
-        <span class="route-coord">37.39° N, 122.08° W</span>
-      </div>
-      <span class="route-line" aria-hidden="true"></span>
-      <div class="route-end route-east">
-        <span class="route-place">Iowa</span>
-        <span class="route-coord">42.03° N, 93.62° W</span>
-      </div>
-      <figcaption class="route-distance">1,538 miles</figcaption>
-    </figure>
+      <figure class="route" aria-label="About 1,540 miles from Iowa to the Bay Area">
+        <span class="route-end">Mountain View</span>
+        <span class="route-line" aria-hidden="true"></span>
+        <span class="route-end">Ames, Iowa</span>
+        <figcaption class="route-distance">1,539 miles</figcaption>
+      </figure>
+    </div>
   </header>
 
-  <main>
-    <section class="block" id="about" aria-labelledby="about-h">
-      <h2 class="block-label" id="about-h">About</h2>
-      <div class="prose">
-        <p>I’m a software engineer at Apple, living in Mountain View. Before that I spent three years at PlayStation in San&nbsp;Francisco, building features for its web, mobile and desktop apps.</p>
-        <p>I started writing software in Iowa. Through high school and Iowa State I built SeasonCast, a live-streaming platform for high school and youth sports that grew to more than 300,000 monthly users.</p>
-        <p>My background is TypeScript, React and React Native, with Swift, Python and C++ close by. I still have a soft spot for live video.</p>
+  <main class="wrap">
+    <section class="block" id="approach" aria-labelledby="approach-h">
+      <h2 class="block-label" id="approach-h">Approach</h2>
+      <div class="principles">
+        <div class="principle reveal">
+          <h3>End to end</h3>
+          <p>I started SeasonCast as a student and designed and wrote all seven of its codebases myself, from the iOS and Android apps to a custom C++ media server.</p>
+        </div>
+        <div class="principle reveal">
+          <h3>Built to stay up</h3>
+          <p>Three years at 99.995% uptime on servers I ran myself, which is less than 26 minutes of downtime a year. I like work where reliability is the feature.</p>
+        </div>
+        <div class="principle reveal">
+          <h3>Agents on the team</h3>
+          <p>I hand AI agents small, well-specified tickets with a check they have to pass, then review the result like a pull request. It’s the same discipline as before, with a faster team.</p>
+        </div>
       </div>
     </section>
 
     <section class="block" id="work" aria-labelledby="work-h">
       <h2 class="block-label" id="work-h">Work</h2>
       <ol class="roles">
-        <li class="role">
-          <div class="role-row">
-            <h3 class="role-org">Apple</h3>
+        <li class="role reveal">
+          <h3 class="role-org">Apple</h3>
+          <div class="role-meta">
             <p class="role-title">Software Engineer</p>
             <p class="role-place">Cupertino, California</p>
-            <p class="role-when"><time datetime="2025-05">2025</time>–now</p>
           </div>
+          <p class="role-when"><time datetime="2025-05">2025</time>–now</p>
         </li>
 
-        <li class="role">
-          <details>
-            <summary class="role-row">
-              <h3 class="role-org">PlayStation</h3>
-              <span class="role-title">Software Engineer II</span>
-              <span class="role-place">San Francisco, California</span>
-              <span class="role-when"><time datetime="2022-05">2022</time>–<time datetime="2025-05">2025</time></span>
-              <span class="role-toggle" aria-hidden="true"></span>
-            </summary>
-            <div class="role-body">
-              <p>Built and shipped customer-facing features across PlayStation’s web, mobile and desktop apps in React and React Native, and was tech lead for one of them.</p>
-              <p class="role-steps">Software Engineer II, 2023–2025. Software Engineer I, 2023. Intern, 2022.</p>
-            </div>
-          </details>
+        <li class="role reveal">
+          <h3 class="role-org">PlayStation</h3>
+          <div class="role-meta">
+            <p class="role-title">Software Engineer II</p>
+            <p class="role-place">San Francisco, California</p>
+          </div>
+          <p class="role-when"><time datetime="2022-05">2022</time>–<time datetime="2025-05">2025</time></p>
+          <p class="role-desc">Features across the web, mobile and desktop apps in React and React Native. Tech lead on one of them.</p>
         </li>
 
-        <li class="role">
-          <details>
-            <summary class="role-row">
-              <h3 class="role-org">SeasonCast</h3>
-              <span class="role-title">Founder and Engineer</span>
-              <span class="role-place">Ankeny, Iowa</span>
-              <span class="role-when"><time datetime="2019-05">2019</time>–<time datetime="2024-06">2024</time></span>
-              <span class="role-toggle" aria-hidden="true"></span>
-            </summary>
-            <div class="role-body">
-              <p>A live-streaming platform for high school and youth sports on iOS, Android and the web. I designed and built all seven codebases, from the mobile apps to a custom C++ media server.</p>
-              <ul class="facts">
-                <li><strong>300,000+</strong> monthly users</li>
-                <li><strong>6,000+</strong> teams a year</li>
-                <li><strong>99.995%</strong> uptime over three years</li>
-              </ul>
-              <p>First place, best student-owned business, Iowa State University, 2021.</p>
-            </div>
-          </details>
+        <li class="role reveal">
+          <h3 class="role-org">SeasonCast</h3>
+          <div class="role-meta">
+            <p class="role-title">Founder and Engineer</p>
+            <p class="role-place">Ankeny, Iowa</p>
+          </div>
+          <p class="role-when"><time datetime="2019-05">2019</time>–<time datetime="2024-06">2024</time></p>
+          <p class="role-desc">Live streaming for high school and youth sports on iOS, Android and the web. More than 300,000 monthly users and 6,000 teams a year. First place, best student-owned business, Iowa State, 2021.</p>
         </li>
 
-        <li class="role">
-          <details>
-            <summary class="role-row">
-              <h3 class="role-org">Hy-Vee</h3>
-              <span class="role-title">Software Engineering Intern</span>
-              <span class="role-place">Des Moines, Iowa</span>
-              <span class="role-when"><time datetime="2021-05">2021</time></span>
-              <span class="role-toggle" aria-hidden="true"></span>
-            </summary>
-            <div class="role-body">
-              <p>Worked on Aisles Online, the grocery ordering site and app for Hy-Vee’s 245+ stores, mostly on product pages and search.</p>
-            </div>
-          </details>
+        <li class="role reveal">
+          <h3 class="role-org">Hy-Vee</h3>
+          <div class="role-meta">
+            <p class="role-title">Software Engineering Intern</p>
+            <p class="role-place">Des Moines, Iowa</p>
+          </div>
+          <p class="role-when"><time datetime="2021-05">2021</time></p>
+          <p class="role-desc">Product pages and search for the grocery ordering site and app, across 245+ stores.</p>
         </li>
 
-        <li class="role">
-          <details>
-            <summary class="role-row">
-              <h3 class="role-org">Polaris</h3>
-              <span class="role-title">Software Developer Intern</span>
-              <span class="role-place">Medina, Minnesota</span>
-              <span class="role-when"><time datetime="2020-05">2020</time></span>
-              <span class="role-toggle" aria-hidden="true"></span>
-            </summary>
-            <div class="role-body">
-              <p>Wrote the shared library that reads and securely programs the NFC emblem on 2022 and later Polaris snowmobiles, RZRs and ATVs, and added features to the vehicle inspection app used on Polaris assembly lines.</p>
-            </div>
-          </details>
+        <li class="role reveal">
+          <h3 class="role-org">Polaris</h3>
+          <div class="role-meta">
+            <p class="role-title">Software Developer Intern</p>
+            <p class="role-place">Medina, Minnesota</p>
+          </div>
+          <p class="role-when"><time datetime="2020-05">2020</time></p>
+          <p class="role-desc">Wrote the NFC library behind the emblem on 2022 and later snowmobiles, RZRs and ATVs.</p>
         </li>
 
-        <li class="role">
-          <details>
-            <summary class="role-row">
-              <h3 class="role-org">Tero International</h3>
-              <span class="role-title">Software Developer Intern</span>
-              <span class="role-place">Clive, Iowa</span>
-              <span class="role-when"><time datetime="2019-05">2019</time></span>
-              <span class="role-toggle" aria-hidden="true"></span>
-            </summary>
-            <div class="role-body">
-              <p>Built a client onboarding system and a digital quiz tool in PHP and JavaScript.</p>
-            </div>
-          </details>
+        <li class="role reveal">
+          <h3 class="role-org">Tero International</h3>
+          <div class="role-meta">
+            <p class="role-title">Software Developer Intern</p>
+            <p class="role-place">Clive, Iowa</p>
+          </div>
+          <p class="role-when"><time datetime="2019-05">2019</time></p>
+          <p class="role-desc">A client onboarding system and a digital quiz tool, in PHP and JavaScript.</p>
         </li>
       </ol>
     </section>
@@ -224,35 +192,32 @@
     <section class="block" id="education" aria-labelledby="education-h">
       <h2 class="block-label" id="education-h">Education</h2>
       <ol class="roles">
-        <li class="role">
-          <div class="role-row">
-            <h3 class="role-org">Iowa State University</h3>
+        <li class="role reveal">
+          <h3 class="role-org">Iowa State University</h3>
+          <div class="role-meta">
             <p class="role-title">B.S., Computer Science</p>
             <p class="role-place">Ames, Iowa</p>
-            <p class="role-when"><time datetime="2022-12">2022</time></p>
           </div>
+          <p class="role-when"><time datetime="2022-12">2022</time></p>
+          <p class="role-desc">Operating systems (a scheduler in C), algorithms, and safety-critical systems testing.</p>
         </li>
-        <li class="role">
-          <div class="role-row">
-            <h3 class="role-org">Des Moines Area Community College</h3>
+        <li class="role reveal">
+          <h3 class="role-org">Des Moines Area Community College</h3>
+          <div class="role-meta">
             <p class="role-title">A.A.S., earned during high school</p>
             <p class="role-place">Des Moines, Iowa</p>
-            <p class="role-when"><time datetime="2019-05">2019</time></p>
           </div>
+          <p class="role-when"><time datetime="2019-05">2019</time></p>
         </li>
       </ol>
     </section>
-
-    <section class="block" id="contact" aria-labelledby="contact-h">
-      <h2 class="block-label" id="contact-h">Contact</h2>
-      <div class="prose">
-        <p class="contact-line">Email is the best way to reach me: <a class="js-email" href="#contact"><span class="email-text">themaxsmith [at] icloud [dot] com</span></a>. I’m also on <a href="https://www.linkedin.com/in/themaxsmith/" rel="me">LinkedIn</a> and <a href="https://github.com/themaxsmith" rel="me">GitHub</a>.</p>
-      </div>
-    </section>
   </main>
 
-  <footer class="foot">
-    <p>© <span class="js-year">2026</span> Maxwell (Max) Smith. Opinions here are my own and don’t represent any employer.</p>
+  <footer class="foot" id="contact">
+    <div class="wrap">
+      <p class="foot-line">Email <a class="js-email" href="#contact"><span class="email-text">themaxsmith [at] icloud [dot] com</span></a></p>
+      <p class="foot-small">© <span class="js-year">2026</span> Maxwell (Max) Smith. Opinions here are my own and don’t represent any employer. <a href="/llms.txt">For agents: llms.txt</a></p>
+    </div>
   </footer>
 
   <script src="/main.js" defer></script>

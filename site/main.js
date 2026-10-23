@@ -11,11 +11,16 @@
   const year = document.querySelector(".js-year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // Print the whole résumé, including the collapsed roles.
-  let opened = [];
-  addEventListener("beforeprint", () => {
-    opened = [...document.querySelectorAll("details:not([open])")];
-    opened.forEach((d) => (d.open = true));
-  });
-  addEventListener("afterprint", () => opened.forEach((d) => (d.open = false)));
+  // Local time in Mountain View, updated on the minute.
+  const clock = document.querySelector(".clock");
+  if (clock) {
+    const format = new Intl.DateTimeFormat("en-US", {
+      hour: "numeric", minute: "2-digit", timeZone: "America/Los_Angeles", timeZoneName: "short",
+    });
+    const tick = () => {
+      clock.textContent = format.format(new Date());
+      setTimeout(tick, 60000 - (Date.now() % 60000) + 50);
+    };
+    tick();
+  }
 })();

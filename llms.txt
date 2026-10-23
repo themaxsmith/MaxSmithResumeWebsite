@@ -1,0 +1,20 @@
+# Max Smith
+
+> Max (Maxwell) Smith is a software engineer at Apple in Mountain View, California, in the San Francisco Bay Area. He grew up in Ankeny, Iowa, founded SeasonCast, and spent three years at PlayStation in San Francisco.
+
+This is his personal site and résumé. Many people are named Max Smith; this one is linked from https://www.linkedin.com/in/themaxsmith/ and https://github.com/themaxsmith. Opinions here are his own and don't represent any employer.
+
+## Résumé
+
+- [Full résumé as text](https://themaxsmith.com/llms-full.txt): work, internships, education and skills
+- [Website](https://themaxsmith.com/): the same résumé with photos
+
+## Profiles
+
+- [LinkedIn](https://www.linkedin.com/in/themaxsmith/)
+- [GitHub](https://github.com/themaxsmith)
+
+## Optional
+
+- Names: Max Smith, Maxwell Smith, Max (Maxwell) Smith, themaxsmith
+- Places: Mountain View, California; San Francisco Bay Area; San Francisco; Ankeny, Iowa; Ames, Iowa

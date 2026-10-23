@@ -1,0 +1,226 @@
+/* themaxsmith.com — a résumé that reads like a life story. One typeface, warm paper, light only.
+   Desktop: when | words | photo.  Phone: title and when, words, then the photo. */
+
+@font-face {
+  font-family: "Host Grotesk";
+  src: url("/fonts/host-grotesk.woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light only;
+
+  --paper: #f4f3ef;   /* unbleached, like a matte print */
+  --ink: #1b1b19;
+  --gray: #6c6b66;    /* 5.1:1 on paper */
+  --rule: #e3e1db;
+  --select: #e6dcc6;
+
+  --font: "Host Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --gutter: 24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+h1, h2, h3, p, ul, ol, figure { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+
+html {
+  background: var(--paper);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.55;
+  font-variant-numeric: tabular-nums;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--select); color: var(--ink); }
+
+a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .25em;
+  text-decoration-color: transparent;
+  transition: text-decoration-color .25s var(--ease), color .25s var(--ease);
+}
+a:hover { text-decoration-color: currentColor; }
+
+:focus-visible { outline: 1.5px solid var(--ink); outline-offset: 4px; border-radius: 2px; }
+main:focus { outline: none; }
+
+.skip {
+  position: absolute; left: 1rem; top: -100px; z-index: 10;
+  padding: .5rem .75rem; background: var(--ink); color: var(--paper); text-decoration: none;
+}
+.skip:focus { top: 1rem; }
+
+/* ---------- page ---------- */
+
+.page {
+  max-width: calc(58rem + 2 * var(--gutter));
+  margin-inline: auto;
+  padding: clamp(40px, 10vh, 120px) var(--gutter) calc(48px + env(safe-area-inset-bottom));
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .5rem 2rem;
+  line-height: 1.45;
+}
+.name { font-size: 1rem; font-weight: 560; letter-spacing: -.01em; }
+.tagline { color: var(--gray); }
+.links { display: flex; gap: 1.25rem; color: var(--gray); }
+.links a { display: inline-block; padding-block: .6rem; margin-block: -.6rem; }
+.links a:hover { color: var(--ink); }
+
+/* ---------- chapters ---------- */
+
+.chapter {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "title when"
+    "body  body"
+    "photo photo";
+  column-gap: 1.5rem;
+  padding-block: 2.25rem;
+  border-top: 1px solid var(--rule);
+}
+
+.ch-title { grid-area: title; font-size: 1.25rem; font-weight: 560; letter-spacing: -.015em; line-height: 1.3; }
+.ch-when  { grid-area: when; color: var(--gray); font-size: .9375rem; font-weight: 400; line-height: 1.6; white-space: nowrap; padding-top: .2rem; }
+.ch-body  { grid-area: body; max-width: 34rem; }
+.ch-photo { grid-area: photo; margin-top: 1.25rem; width: 100%; max-width: 28rem; }
+
+.ch-meta { color: var(--gray); }
+.ch-note { margin-top: .5rem; text-wrap: pretty; }
+.ch-meta + .ch-note { margin-top: .6rem; }
+
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, max-content)); gap: 0 1.5rem; margin-top: 1rem; line-height: 1.4; color: var(--gray); }
+.facts strong { display: block; color: var(--ink); font-weight: 540; }
+.award { color: var(--gray); font-size: .9375rem; }
+
+/* internships, and roles inside a company */
+.jobs, .steps { margin-top: 1rem; display: grid; gap: .85rem; }
+.job-head { display: flex; justify-content: space-between; gap: 1rem; }
+.job-org { font-weight: 500; }
+.job-who { display: flex; flex-wrap: wrap; column-gap: .4em; }
+.job-role { color: var(--gray); }
+.job-role::before { content: "· "; }
+@media (max-width: 559px) {
+  .job-who { display: block; }
+  .job-role { display: block; color: var(--ink); }
+  .job-role::before { content: none; }
+  .facts { gap: 0 1rem; }
+  .facts li { white-space: nowrap; font-size: .875rem; }
+  .facts strong { font-size: 1rem; }
+}
+.jobs-label { margin-top: 1.25rem; font-size: .9375rem; color: var(--gray); }
+.jobs-label + .jobs { margin-top: .5rem; }
+.job-when { color: var(--gray); white-space: nowrap; }
+.job-note { color: var(--gray); text-wrap: pretty; }
+
+.steps { gap: .35rem; }
+
+/* photos */
+picture, picture img { display: block; }
+.ch-photo img, .strip img {
+  width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover;
+  border-radius: 14px; background: var(--rule);
+}
+.ch-photo.wide img { aspect-ratio: 3 / 2; }
+figcaption { margin-top: .5rem; font-size: .8125rem; line-height: 1.4; color: var(--gray); }
+
+/* the opening: who, now — face beside it */
+.intro { border-top: 0; padding-top: clamp(40px, 8vh, 80px); grid-template-areas: "body body" "photo photo"; }
+.lead { font-size: clamp(1.375rem, 1.1rem + 1.1vw, 1.75rem); line-height: 1.3; letter-spacing: -.02em; font-weight: 440; text-wrap: balance; }
+.sub { margin-top: .9rem; color: var(--gray); text-wrap: pretty; }
+
+/* closing gallery: no words. A swipe with a peek on phones, a band wider than the text on desktop */
+.outside { padding-block: 2.5rem 3rem; border-top: 1px solid var(--rule); }
+.strip {
+  display: flex; gap: 10px;
+  margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); scroll-padding-inline: var(--gutter);
+  overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none;
+}
+.strip::-webkit-scrollbar { display: none; }
+.strip li { flex: 0 0 72%; scroll-snap-align: start; }
+
+/* ---------- desktop: when | words | photo ---------- */
+
+@media (min-width: 860px) {
+  .chapter {
+    grid-template-columns: 7.5rem minmax(0, 1fr) 15rem;
+    grid-template-areas: "when title photo" "when body photo";
+    grid-template-rows: auto 1fr;
+    column-gap: 2.5rem;
+    padding-block: 3rem;
+  }
+  .ch-photo, .ch-photo.wide { width: 100%; margin-top: .2rem; }
+  .ch-body { padding-top: .35rem; }
+  .intro { grid-template-areas: "body body photo"; padding-top: clamp(40px, 7vh, 72px); align-items: start; }
+  .intro .ch-body { max-width: 36rem; padding-top: 0; margin-top: -.4rem; }
+  .outside { padding-block: 3.5rem 4rem; }
+  .strip {
+    display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; overflow: visible;
+    width: min(1184px, 100vw - 48px); margin-inline: 0; margin-left: 50%; translate: -50% 0; padding-inline: 0;
+  }
+}
+
+/* ---------- footer ---------- */
+
+.foot {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem;
+  color: var(--gray); font-size: .875rem;
+}
+.foot-links { display: flex; gap: 1.25rem; color: var(--ink); }
+.foot a { display: inline-block; padding-block: .6rem; margin-block: -.6rem; }
+
+/* ---------- motion: none on purpose; links and focus only ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ---------- print: the résumé without the photos ---------- */
+
+@media print {
+  :root { --paper: #fff; --ink: #000; --gray: #444; --rule: #ccc; }
+  .page { padding: 0; max-width: none; }
+  .skip, .ch-photo, .outside { display: none; }
+  .chapter { grid-template-columns: 7rem minmax(0, 1fr); grid-template-areas: "when title" "when body"; padding-block: 1rem; break-inside: avoid; }
+  .intro { grid-template-areas: "body body"; }
+  .links a[href^="http"]::after { content: " " attr(href); }
+}
+
+/* ---------- small phones ---------- */
+
+@media (max-width: 859px) {
+  .page { padding-top: 32px; }
+  .intro { padding-top: 32px; }
+}
+
+@media (max-width: 399px) {
+  .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: .5rem; }
+  .facts li { white-space: normal; }
+  .job-head { flex-wrap: wrap; gap: .125rem .75rem; }
+}

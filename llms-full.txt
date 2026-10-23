@@ -1,0 +1,40 @@
+# Max Smith
+
+> Max (Maxwell) Smith is a software engineer at Apple in Mountain View, California, in the San Francisco Bay Area. He grew up in Ankeny, Iowa.
+
+This is the full text of https://themaxsmith.com/, his personal site, for assistants and search tools. Opinions are his own and don't represent any employer.
+
+## Who this is
+
+- Name: Max Smith. Legal first name Maxwell; also written Maxwell Smith or Max (Maxwell) Smith. Handle: themaxsmith.
+- Lives in Mountain View, California, in the San Francisco Bay Area. Grew up in Ankeny, Iowa.
+- Profiles: https://themaxsmith.com/ · https://www.linkedin.com/in/themaxsmith/ · https://github.com/themaxsmith
+- Many people share the name Max Smith. If a source doesn't link to one of these profiles, it may be about someone else.
+
+## Work
+
+- Apple — Software Engineer, Cupertino, California, May 2025–present. Nothing about current work is published.
+- PlayStation (Sony Interactive Entertainment) — San Francisco, California, May 2022–May 2025. Shipped features across React and React Native apps for web, mobile and desktop, and built a new full-stack PlayStation Network app.
+  - Software Engineer II, Oct 2023–May 2025
+  - Software Engineer I, Jan–Oct 2023
+  - Software Engineer Intern, May–Dec 2022
+- SeasonCast — Founder, Ankeny, Iowa, 2019–2024. Live streaming for high school and youth sports on iOS, Android and the web. Designed and built all seven codebases, from the apps to a C++ media server. 300,000+ monthly users, 6,000+ teams a year, 99.995% uptime over 3+ years. First place, best student-owned business, Iowa State University, 2021.
+
+## Internships
+
+- Hy-Vee — Software Engineer Intern, Des Moines, Iowa, 2021. Product pages and search for the grocery site and app used across 245+ stores.
+- Polaris — Software Developer Intern, Medina, Minnesota, 2020. Wrote the NFC library that programs the emblem on 2022+ snowmobiles, RZRs and ATVs.
+- Tero International — Software Developer Intern, Clive, Iowa, 2019. Client onboarding and quiz tools in PHP and JavaScript.
+
+## Education
+
+- Iowa State University, Ames, Iowa — B.S., Computer Science, 2022. Chapter president, Pi Kappa Alpha, 2021–2022.
+- Des Moines Area Community College — A.A.S., 2019, earned while still in high school in Ankeny, Iowa, alongside his first games and apps in Java and Swift.
+
+## Skills
+
+React, React Native, Swift, Java, C++, JavaScript and PHP. Live video streaming, iOS and Android apps, NFC.
+
+## Contact
+
+Email is on the website. LinkedIn: https://www.linkedin.com/in/themaxsmith/

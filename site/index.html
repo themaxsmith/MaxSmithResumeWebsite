@@ -109,7 +109,7 @@
   <a class="skip" href="#main">Skip to content</a>
 
   <div class="page">
-    <header class="head" style="--i: 0">
+    <header class="head">
       <div>
         <h1 class="name">Max Smith</h1>
         <p class="tagline">Software Engineer</p>
@@ -122,10 +122,10 @@
     </header>
 
     <main id="main" tabindex="-1">
-      <section class="chapter intro" aria-label="About" style="--i: 1">
+      <section class="chapter intro" aria-label="About">
         <div class="ch-body">
           <p class="lead">I’m a software engineer at Apple, living in Mountain View.</p>
-          <p class="sub">I grew up in Iowa, where I built SeasonCast, a live-streaming platform for high school sports with 300,000+ monthly users. Then three years at PlayStation in San&nbsp;Francisco.</p>
+          <p class="sub">Previously three years at PlayStation in San&nbsp;Francisco. In Iowa, I built SeasonCast, a streaming platform for high school sports with 300,000+ monthly users.</p>
         </div>
         <figure class="ch-photo">
           <picture>
@@ -133,25 +133,44 @@
             <img src="/img/2026-carmel-lg.jpg" srcset="/img/2026-carmel-sm.jpg 400w, /img/2026-carmel-lg.jpg 800w" sizes="(min-width: 860px) 240px, (min-width: 496px) 448px, calc(100vw - 48px)"
                  width="800" height="1000" alt="Max Smith on a terrace overlooking Carmel Bay, California, 2026" fetchpriority="high">
           </picture>
-          <figcaption>California</figcaption>
+          <figcaption>California, 2026</figcaption>
         </figure>
       </section>
 
-      <ol class="story" aria-label="Life and work, in order">
+      <ol class="story" aria-label="Work and education, most recent first">
         <li class="chapter">
-          <h2 class="ch-title">Ankeny, Iowa</h2>
-          <p class="ch-when">Until <time datetime="2019-05">2019</time></p>
+          <h2 class="ch-title">Apple</h2>
+          <p class="ch-when"><time datetime="2025-05">2025</time>–now</p>
           <div class="ch-body">
-            <p class="ch-meta">A.A.S., Des Moines Area Community College</p>
-            <p class="ch-note">Earned while still in high school, alongside my first games and apps in Java and Swift.</p>
+            <p class="ch-meta">Software Engineer · Cupertino, California</p>
           </div>
-          <figure class="ch-photo">
+        </li>
+
+        <li class="chapter">
+          <h2 class="ch-title">PlayStation</h2>
+          <p class="ch-when"><time datetime="2022-05">2022</time>–<time datetime="2025-05">2025</time></p>
+          <div class="ch-body">
+            <p class="ch-meta">San Francisco, California</p>
+            <p class="ch-note">Shipped features across React and React Native apps for web, mobile and desktop, and built a new full-stack PlayStation Network app.</p>
+            <ol class="steps" aria-label="Roles at PlayStation">
+              <li>
+                <p class="job-head"><span class="job-org">Software Engineer II</span><span class="job-when">Oct 2023–May 2025</span></p>
+              </li>
+              <li>
+                <p class="job-head"><span class="job-org">Software Engineer I</span><span class="job-when">Jan–Oct 2023</span></p>
+              </li>
+              <li>
+                <p class="job-head"><span class="job-org">Software Engineer Intern</span><span class="job-when">May–Dec 2022</span></p>
+              </li>
+            </ol>
+          </div>
+          <figure class="ch-photo wide">
             <picture>
-              <source type="image/webp" srcset="/img/2016-high-school-sm.webp 400w, /img/2016-high-school-lg.webp 800w" sizes="(min-width: 860px) 240px, (min-width: 496px) 448px, calc(100vw - 48px)">
-              <img src="/img/2016-high-school-lg.jpg" srcset="/img/2016-high-school-sm.jpg 400w, /img/2016-high-school-lg.jpg 800w" sizes="(min-width: 860px) 240px, (min-width: 496px) 448px, calc(100vw - 48px)"
-                   width="800" height="1000" alt="Max Smith smiling by a pond in Iowa, 2016" loading="lazy" decoding="async">
+              <source type="image/webp" srcset="/img/2022-playstation-sm.webp 600w, /img/2022-playstation-lg.webp 1200w" sizes="(min-width: 860px) 240px, (min-width: 496px) 448px, calc(100vw - 48px)">
+              <img src="/img/2022-playstation-lg.jpg" srcset="/img/2022-playstation-sm.jpg 600w, /img/2022-playstation-lg.jpg 1200w" sizes="(min-width: 860px) 240px, (min-width: 496px) 448px, calc(100vw - 48px)"
+                   width="1200" height="800" alt="Max Smith beside the PlayStation sign, 2022" loading="lazy" decoding="async">
             </picture>
-            <figcaption>High school, 2016</figcaption>
+            <figcaption>PlayStation, 2022</figcaption>
           </figure>
         </li>
 
@@ -211,48 +230,19 @@
         </li>
 
         <li class="chapter">
-          <h2 class="ch-title">PlayStation</h2>
-          <p class="ch-when"><time datetime="2022-05">2022</time>–<time datetime="2025-05">2025</time></p>
+          <h2 class="ch-title">High school</h2>
+          <p class="ch-when">Until <time datetime="2019-05">2019</time></p>
           <div class="ch-body">
-            <p class="ch-meta">San Francisco, California</p>
-            <ol class="steps" aria-label="Roles at PlayStation">
-              <li>
-                <p class="job-head"><span class="job-org">Software Engineer Intern</span><span class="job-when">May–Dec 2022</span></p>
-                <p class="job-note">Built and deployed a new customer-facing PlayStation Network app, full stack.</p>
-              </li>
-              <li>
-                <p class="job-head"><span class="job-org">Software Engineer I</span><span class="job-when">Jan–Oct 2023</span></p>
-                <p class="job-note">Features for the PlayStation App and a React Native desktop app.</p>
-              </li>
-              <li>
-                <p class="job-head"><span class="job-org">Software Engineer II</span><span class="job-when">Oct 2023–May 2025</span></p>
-                <p class="job-note">Shipped features in React and React Native apps for web, mobile and desktop.</p>
-              </li>
-            </ol>
-          </div>
-          <figure class="ch-photo wide">
-            <picture>
-              <source type="image/webp" srcset="/img/2022-playstation-sm.webp 600w, /img/2022-playstation-lg.webp 1200w" sizes="(min-width: 860px) 240px, (min-width: 496px) 448px, calc(100vw - 48px)">
-              <img src="/img/2022-playstation-lg.jpg" srcset="/img/2022-playstation-sm.jpg 600w, /img/2022-playstation-lg.jpg 1200w" sizes="(min-width: 860px) 240px, (min-width: 496px) 448px, calc(100vw - 48px)"
-                   width="1200" height="800" alt="Max Smith beside the PlayStation sign, 2022" loading="lazy" decoding="async">
-            </picture>
-            <figcaption>PlayStation, 2022</figcaption>
-          </figure>
-        </li>
-
-        <li class="chapter">
-          <h2 class="ch-title">Apple</h2>
-          <p class="ch-when"><time datetime="2025-05">2025</time>–now</p>
-          <div class="ch-body">
-            <p class="ch-meta">Software Engineer · Cupertino, California</p>
+            <p class="ch-meta">A.A.S., Des Moines Area Community College</p>
+            <p class="ch-note">I grew up in Ankeny, Iowa, and earned this degree while still in high school, alongside my first games and apps in Java and Swift.</p>
           </div>
           <figure class="ch-photo">
             <picture>
-              <source type="image/webp" srcset="/img/2026-golden-gate-sm.webp 400w, /img/2026-golden-gate-lg.webp 800w" sizes="(min-width: 860px) 240px, (min-width: 496px) 448px, calc(100vw - 48px)">
-              <img src="/img/2026-golden-gate-lg.jpg" srcset="/img/2026-golden-gate-sm.jpg 400w, /img/2026-golden-gate-lg.jpg 800w" sizes="(min-width: 860px) 240px, (min-width: 496px) 448px, calc(100vw - 48px)"
-                   width="800" height="1000" alt="Max Smith on the Marin Headlands above the Golden Gate Bridge" loading="lazy" decoding="async">
+              <source type="image/webp" srcset="/img/2016-high-school-sm.webp 400w, /img/2016-high-school-lg.webp 800w" sizes="(min-width: 860px) 240px, (min-width: 496px) 448px, calc(100vw - 48px)">
+              <img src="/img/2016-high-school-lg.jpg" srcset="/img/2016-high-school-sm.jpg 400w, /img/2016-high-school-lg.jpg 800w" sizes="(min-width: 860px) 240px, (min-width: 496px) 448px, calc(100vw - 48px)"
+                   width="800" height="1000" alt="Max Smith smiling by a pond in Iowa, 2016" loading="lazy" decoding="async">
             </picture>
-            <figcaption>Golden Gate, 2026</figcaption>
+            <figcaption>High school, 2016</figcaption>
           </figure>
         </li>
       </ol>
@@ -260,12 +250,12 @@
       <section class="outside" aria-labelledby="outside-h">
         <h2 class="ch-when" id="outside-h">Outside work</h2>
         <ul class="grid">
-          <li><figure><picture><source type="image/webp" srcset="/img/2025-skiing-sm.webp 400w, /img/2025-skiing-lg.webp 800w" sizes="(min-width: 860px) 250px, 46vw"><img src="/img/2025-skiing-lg.jpg" srcset="/img/2025-skiing-sm.jpg 400w, /img/2025-skiing-lg.jpg 800w" sizes="(min-width: 860px) 250px, 46vw" width="800" height="1000" alt="Max Smith in ski gear under a clear sky at Lake Tahoe" loading="lazy" decoding="async"></picture><figcaption>Skiing</figcaption></figure></li>
-          <li><figure><picture><source type="image/webp" srcset="/img/lake-tahoe-sm.webp 400w, /img/lake-tahoe-lg.webp 800w" sizes="(min-width: 860px) 250px, 46vw"><img src="/img/lake-tahoe-lg.jpg" srcset="/img/lake-tahoe-sm.jpg 400w, /img/lake-tahoe-lg.jpg 800w" sizes="(min-width: 860px) 250px, 46vw" width="800" height="1000" alt="Lake Tahoe and snowy mountains from the top of a ski run" loading="lazy" decoding="async"></picture><figcaption>Lake Tahoe</figcaption></figure></li>
-          <li><figure><picture><source type="image/webp" srcset="/img/whistler-sm.webp 400w, /img/whistler-lg.webp 800w" sizes="(min-width: 860px) 250px, 46vw"><img src="/img/whistler-lg.jpg" srcset="/img/whistler-sm.jpg 400w, /img/whistler-lg.jpg 800w" sizes="(min-width: 860px) 250px, 46vw" width="800" height="1000" alt="Mist in a snowy valley below the gondola at Whistler" loading="lazy" decoding="async"></picture><figcaption>Whistler</figcaption></figure></li>
-          <li><figure><picture><source type="image/webp" srcset="/img/2025-des-moines-sm.webp 400w, /img/2025-des-moines-lg.webp 800w" sizes="(min-width: 860px) 250px, 46vw"><img src="/img/2025-des-moines-lg.jpg" srcset="/img/2025-des-moines-sm.jpg 400w, /img/2025-des-moines-lg.jpg 800w" sizes="(min-width: 860px) 250px, 46vw" width="800" height="1000" alt="Max Smith in a dark blazer against a gold art deco wall in Des Moines" loading="lazy" decoding="async"></picture><figcaption>Des Moines</figcaption></figure></li>
-          <li><figure><picture><source type="image/webp" srcset="/img/iowa-sm.webp 400w, /img/iowa-lg.webp 800w" sizes="(min-width: 860px) 250px, 46vw"><img src="/img/iowa-lg.jpg" srcset="/img/iowa-sm.jpg 400w, /img/iowa-lg.jpg 800w" sizes="(min-width: 860px) 250px, 46vw" width="800" height="1000" alt="A red barn and grain bins on a green hill in Iowa at dusk" loading="lazy" decoding="async"></picture><figcaption>Iowa</figcaption></figure></li>
-          <li><figure><picture><source type="image/webp" srcset="/img/san-diego-sm.webp 400w, /img/san-diego-lg.webp 800w" sizes="(min-width: 860px) 250px, 46vw"><img src="/img/san-diego-lg.jpg" srcset="/img/san-diego-sm.jpg 400w, /img/san-diego-lg.jpg 800w" sizes="(min-width: 860px) 250px, 46vw" width="800" height="1000" alt="Boats in a San Diego marina below the downtown skyline" loading="lazy" decoding="async"></picture><figcaption>San Diego</figcaption></figure></li>
+          <li><figure><picture><source type="image/webp" srcset="/img/2026-golden-gate-sm.webp 400w, /img/2026-golden-gate-lg.webp 800w" sizes="(min-width: 860px) 240px, 46vw"><img src="/img/2026-golden-gate-lg.jpg" srcset="/img/2026-golden-gate-sm.jpg 400w, /img/2026-golden-gate-lg.jpg 800w" sizes="(min-width: 860px) 240px, 46vw" width="800" height="1000" alt="Max Smith on the Marin Headlands above the Golden Gate Bridge" loading="lazy" decoding="async"></picture><figcaption>Golden Gate</figcaption></figure></li>
+          <li><figure><picture><source type="image/webp" srcset="/img/2025-skiing-sm.webp 400w, /img/2025-skiing-lg.webp 800w" sizes="(min-width: 860px) 240px, 46vw"><img src="/img/2025-skiing-lg.jpg" srcset="/img/2025-skiing-sm.jpg 400w, /img/2025-skiing-lg.jpg 800w" sizes="(min-width: 860px) 240px, 46vw" width="800" height="1000" alt="Max Smith in ski gear under a clear sky at Lake Tahoe" loading="lazy" decoding="async"></picture><figcaption>Skiing</figcaption></figure></li>
+          <li><figure><picture><source type="image/webp" srcset="/img/lake-tahoe-sm.webp 400w, /img/lake-tahoe-lg.webp 800w" sizes="(min-width: 860px) 240px, 46vw"><img src="/img/lake-tahoe-lg.jpg" srcset="/img/lake-tahoe-sm.jpg 400w, /img/lake-tahoe-lg.jpg 800w" sizes="(min-width: 860px) 240px, 46vw" width="800" height="1000" alt="Lake Tahoe and snowy mountains from the top of a ski run" loading="lazy" decoding="async"></picture><figcaption>Lake Tahoe</figcaption></figure></li>
+          <li><figure><picture><source type="image/webp" srcset="/img/whistler-sm.webp 400w, /img/whistler-lg.webp 800w" sizes="(min-width: 860px) 240px, 46vw"><img src="/img/whistler-lg.jpg" srcset="/img/whistler-sm.jpg 400w, /img/whistler-lg.jpg 800w" sizes="(min-width: 860px) 240px, 46vw" width="800" height="1000" alt="Mist in a snowy valley below the gondola at Whistler" loading="lazy" decoding="async"></picture><figcaption>Whistler</figcaption></figure></li>
+          <li><figure><picture><source type="image/webp" srcset="/img/2025-des-moines-sm.webp 400w, /img/2025-des-moines-lg.webp 800w" sizes="(min-width: 860px) 240px, 46vw"><img src="/img/2025-des-moines-lg.jpg" srcset="/img/2025-des-moines-sm.jpg 400w, /img/2025-des-moines-lg.jpg 800w" sizes="(min-width: 860px) 240px, 46vw" width="800" height="1000" alt="Max Smith in a dark blazer against a gold art deco wall in Des Moines" loading="lazy" decoding="async"></picture><figcaption>Des Moines</figcaption></figure></li>
+          <li><figure><picture><source type="image/webp" srcset="/img/iowa-sm.webp 400w, /img/iowa-lg.webp 800w" sizes="(min-width: 860px) 240px, 46vw"><img src="/img/iowa-lg.jpg" srcset="/img/iowa-sm.jpg 400w, /img/iowa-lg.jpg 800w" sizes="(min-width: 860px) 240px, 46vw" width="800" height="1000" alt="A red barn and grain bins on a green hill in Iowa at dusk" loading="lazy" decoding="async"></picture><figcaption>Iowa</figcaption></figure></li>
         </ul>
       </section>
     </main>

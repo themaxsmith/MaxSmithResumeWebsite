@@ -137,15 +137,7 @@ main:focus { outline: none; }
 .job-when { color: var(--gray); white-space: nowrap; }
 .job-note { color: var(--gray); text-wrap: pretty; }
 
-.steps { position: relative; padding-left: 1.1rem; }
-.steps::before { content: ""; position: absolute; left: 3px; top: .6rem; bottom: .6rem; width: 1px; background: var(--rule); }
-.steps li { position: relative; }
-.steps li::before {
-  content: ""; position: absolute; left: -1.1rem; top: .55rem;
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--paper); box-shadow: inset 0 0 0 1px var(--gray);
-}
-.steps li:last-child::before { background: var(--ink); box-shadow: none; }
+.steps { gap: .35rem; }
 
 /* photos */
 picture, picture img { display: block; }
@@ -198,13 +190,7 @@ figcaption { margin-top: .5rem; font-size: .8125rem; line-height: 1.4; color: va
 .foot-links { display: flex; gap: 1.25rem; color: var(--ink); }
 .foot a { display: inline-block; padding-block: .6rem; margin-block: -.6rem; }
 
-/* ---------- motion: one soft entrance at the top ---------- */
-
-@keyframes enter {
-  from { opacity: 0; transform: translateY(6px); filter: blur(6px); }
-  to   { opacity: 1; transform: none; filter: blur(0); }
-}
-[style*="--i"] { animation: enter .9s var(--ease) both; animation-delay: calc(var(--i) * 110ms + 60ms); }
+/* ---------- motion: none on purpose; links and focus only ---------- */
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -219,5 +205,17 @@ figcaption { margin-top: .5rem; font-size: .8125rem; line-height: 1.4; color: va
   .chapter { grid-template-columns: 7rem minmax(0, 1fr); grid-template-areas: "when title" "when body"; padding-block: 1rem; break-inside: avoid; }
   .intro { grid-template-areas: "body body"; }
   .links a[href^="http"]::after { content: " " attr(href); }
-  [style*="--i"] { animation: none; }
+}
+
+/* ---------- small phones ---------- */
+
+@media (max-width: 859px) {
+  .page { padding-top: 32px; }
+  .intro { padding-top: 32px; }
+}
+
+@media (max-width: 399px) {
+  .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: .5rem; }
+  .facts li { white-space: normal; }
+  .job-head { flex-wrap: wrap; gap: .125rem .75rem; }
 }

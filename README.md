@@ -1,6 +1,6 @@
 # themaxsmith.com
 
-Personal site of Max Smith: one static page, one typeface, no photo, a quiet glow and a name that settles into place. No framework and no build step, so search engines and AI answer engines read the full page without running JavaScript.
+Personal site of Max Smith: one static page, one typeface, one column on warm paper, light only. Hierarchy comes from weight and tone, not size; the only motion is a soft entrance. No framework and no build step, so search engines and AI answer engines read the full page without running JavaScript.
 
 ## Layout
 
@@ -8,7 +8,7 @@ Personal site of Max Smith: one static page, one typeface, no photo, a quiet glo
 | --- | --- |
 | `site/index.html` | The page, including meta tags and `Person` / `ProfilePage` structured data |
 | `site/styles.css` | All styles. Light and dark follow the system; motion respects reduced-motion |
-| `site/main.js` | Email link assembly, footer year, Mountain View clock |
+| `site/main.js` | Email link assembly and footer year |
 | `site/img/og.jpg` | The social card (typographic, no photo) |
 | `site/llms.txt`, `robots.txt`, `sitemap.xml` | What crawlers and AI assistants read |
 | `scripts/check.mjs` | Pre-publish check: guardrails plus search basics. Exits 1 on any failure |

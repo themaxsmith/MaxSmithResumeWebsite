@@ -42,7 +42,7 @@
   "employer_mentions_allowed": {
     "index.html": [
       "\"worksFor\": { \"@type\": \"Organization\", \"name\": \"Apple\" }",
-      "moved to San Francisco in 2022 for PlayStation, and to Mountain View in 2025 for Apple.",
+      "I’m a software engineer at Apple, living in Mountain View.",
       "Apple Software Engineer Cupertino, California 2025 -now"
     ],
     "llms.txt": [

@@ -6,10 +6,10 @@
 
 - Current role: Software Engineer at Apple (since 2025). No details about current work are published here.
 - Previously: Software Engineer at PlayStation (Sony Interactive Entertainment) in San Francisco, 2022–2025, working on web, mobile and desktop apps in React and React Native.
-- Founder and engineer of SeasonCast (Ankeny, Iowa, 2019–2024), a live-streaming platform for high school and youth sports that reached 300,000+ monthly users.
+- Founder and engineer of SeasonCast (Ankeny, Iowa, 2019–2024), a live-streaming platform for high school and youth sports. He wrote all seven codebases (iOS, Android, web, API, C++ media server). 300,000 monthly users, 6,000 teams a year, 99.995% uptime for more than three years.
 - Internships: Hy-Vee (Des Moines, Iowa, 2021), Polaris (Medina, Minnesota, 2020), Tero International (Clive, Iowa, 2019).
-- How he works: builds whole systems and keeps them running (SeasonCast: 99.995% uptime over three years). On his own projects he runs a small team of AI agents, each with a small ticket, a check to pass and a review before merge.
-- Education: B.S. Computer Science, Iowa State University (Ames, Iowa), 2022. A.A.S., Des Moines Area Community College, 2019.
+- How he works: on personal projects he works with AI coding agents and holds their work to the same bar as anyone's: a small ticket, a check that has to pass, and a review before it merges.
+- Education: B.S. Computer Science, Iowa State University (Ames, Iowa), 2022. A.A.S., Des Moines Area Community College, 2019, completed while in high school.
 
 ## Links
 

@@ -44,6 +44,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;             /* the photo row is full-bleed */
 }
 
 ::selection { background: var(--select); color: var(--ink); }
@@ -104,11 +105,12 @@ main:focus { outline: none; }
 .intro p + p { margin-top: 1.1em; }
 
 .lead {
-  font-size: clamp(1.25rem, 1.05rem + .9vw, 1.4375rem);
-  line-height: 1.42;
-  letter-spacing: -.016em;
-  font-weight: 420;
-  margin-bottom: 1.6rem;
+  font-size: clamp(1.375rem, 1.1rem + 1.1vw, 1.75rem);
+  line-height: 1.3;
+  letter-spacing: -.02em;
+  font-weight: 440;
+  text-wrap: balance;
+  margin-bottom: .9rem;
 }
 
 /* ---------- lists ---------- */
@@ -186,49 +188,57 @@ main:focus { outline: none; }
 .step-when  { color: var(--gray); white-space: nowrap; }
 .step-desc  { grid-column: 1 / -1; margin-top: .15rem; max-width: 32rem; text-wrap: pretty; }
 
-/* ---------- photos: wider than the text, like prints on a table ---------- */
+/* ---------- story: ten years in seven photos, scrolling sideways like a roll of prints ---------- */
 
-.photos { margin-top: clamp(56px, 9vh, 88px); }
+.sub { color: var(--gray); max-width: 34rem; text-wrap: pretty; }
 
-.strip {
+.story { margin-top: clamp(40px, 7vh, 72px); }
+
+.gallery {
+  --edge: max(24px, calc((100vw - 36rem) / 2));
   display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
+  gap: 12px;
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  padding-inline: 24px;
-  scroll-padding-inline: 24px;
+  padding-inline: var(--edge);
+  scroll-padding-inline: var(--edge);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
   overscroll-behavior-x: contain;
+  scrollbar-width: none;
 }
-.strip::-webkit-scrollbar { display: none; }
-.strip li { flex: 0 0 70vw; max-width: 300px; scroll-snap-align: start; }
-.strip figure { margin: 0; }
-.strip img {
+.gallery::-webkit-scrollbar { display: none; }
+.gallery:focus-visible { outline-offset: -2px; }
+.gallery li { flex: 0 0 clamp(220px, 64vw, 280px); scroll-snap-align: start; }
+.gallery figure { margin: 0; }
+.gallery img {
   display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 3px;
+  border-radius: 4px;
   background: var(--rule);
 }
-.strip figcaption { margin-top: .5rem; font-size: .8125rem; color: var(--gray); }
+.gallery figcaption { margin-top: .6rem; font-size: .8125rem; line-height: 1.4; color: var(--gray); }
+.gallery .yr { color: var(--ink); font-weight: 520; margin-right: .3em; }
 
-@media (min-width: 760px) {
-  .strip {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-    overflow: visible;
-    width: min(60rem, 100vw - 48px);
-    margin-left: 50%;
-    translate: -50% 0;
-    padding-inline: 0;
-  }
-  .strip li { max-width: none; }
+/* Apple-style paddles, only where there is a pointer to use them */
+.paddles { display: flex; justify-content: flex-end; gap: 10px; margin-top: 1rem; }
+.paddles[hidden] { display: none; }
+@media (hover: none) { .paddles { display: none; } }
+.paddle {
+  width: 34px; height: 34px;
+  display: grid; place-items: center;
+  border: 0; border-radius: 50%;
+  background: rgba(27, 27, 25, .07);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background .2s var(--ease), opacity .2s var(--ease);
 }
+.paddle:hover { background: rgba(27, 27, 25, .12); }
+.paddle:disabled { opacity: .35; cursor: default; }
+.paddle svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ---------- footer ---------- */
 
@@ -269,5 +279,5 @@ main:focus { outline: none; }
   .links a[href^="http"]::after { content: " " attr(href); }
   [style*="--i"] { animation: none; }
   .list, .foot { break-inside: avoid; }
-  .photos { display: none; }
+  .story { display: none; }
 }

@@ -79,8 +79,7 @@ for (const f of files) {
   check(!basename(f).startsWith(".") || name === ".nojekyll", "no dotfiles in site/", name);
   check(![".psd", ".map", ".ai", ".sketch", ".fig"].includes(extname(f)), "no design sources or source maps in site/", name);
   if ([".jpg", ".jpeg", ".webp", ".png"].includes(extname(f))) {
-    const head = readFileSync(f).subarray(0, 65536).toString("latin1");
-    check(!/Exif\0\0|EXIF|GPS|<x:xmpmeta/.test(head), "image has no EXIF/GPS/XMP metadata", name);
+    check(!imageMetadata(readFileSync(f), extname(f)), "image has no EXIF/GPS/XMP metadata", name);
   }
 }
 
@@ -152,6 +151,39 @@ check(readFileSync(join(site, "CNAME"), "utf8").trim() === "themaxsmith.com", "C
 const weight = ["index.html", "styles.css", "main.js", "fonts/host-grotesk.woff2"]
   .reduce((n, f) => n + statSync(join(site, f)).size, 0);
 check(weight < 200_000, "first view under 200 KB", `${Math.round(weight / 1024)} KB`);
+
+
+// Walk the container format instead of grepping bytes, so compressed data can't false-positive.
+function imageMetadata(buf, ext) {
+  if (ext === ".jpg" || ext === ".jpeg") {
+    for (let i = 2; i + 4 < buf.length && buf[i] === 0xff; ) {
+      const marker = buf[i + 1], len = buf.readUInt16BE(i + 2);
+      if (marker === 0xda) break;                                  // start of scan: no more headers
+      const body = buf.subarray(i + 4, i + 2 + len).toString("latin1");
+      if (marker === 0xe1 && (body.startsWith("Exif\0\0") || body.includes("ns.adobe.com/xap"))) return "EXIF/XMP";
+      i += 2 + len;
+    }
+    return null;
+  }
+  if (ext === ".webp") {
+    for (let i = 12; i + 8 <= buf.length; ) {
+      const id = buf.toString("latin1", i, i + 4), len = buf.readUInt32LE(i + 4);
+      if (id === "EXIF" || id === "XMP ") return id;
+      i += 8 + len + (len & 1);
+    }
+    return null;
+  }
+  if (ext === ".png") {
+    for (let i = 8; i + 8 <= buf.length; ) {
+      const len = buf.readUInt32BE(i), id = buf.toString("latin1", i + 4, i + 8);
+      if (id === "eXIf") return id;
+      if ((id === "iTXt" || id === "tEXt") && buf.toString("latin1", i + 8, i + 8 + Math.min(len, 40)).includes("XML:com.adobe.xmp")) return "XMP";
+      i += 12 + len;
+    }
+    return null;
+  }
+  return null;
+}
 
 // ---------- report ----------
 for (const f of failures) console.log(`FAIL  ${f}`);

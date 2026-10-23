@@ -5,10 +5,19 @@
     { "pattern": "\\uF8FF", "reason": "logo glyph" },
     { "pattern": "apple\\.com", "reason": "no employer links" },
     { "pattern": "\\b\\d{3}[-. )]+\\d{3}[-. ]\\d{4}\\b", "reason": "phone number" },
-    { "pattern": "themaxsmith@icloud\\.com", "reason": "email is assembled in JavaScript, not left in the HTML" },
-    { "pattern": "seasoncast\\.com|apps\\.apple\\.com", "reason": "SeasonCast is shown as past work, without links" },
+    { "pattern": "[a-z0-9._%+-]+@[a-z0-9-]+\\.[a-z]{2,}", "reason": "email addresses are assembled in JavaScript, never left in a file" },
+    { "pattern": "seasoncast\\.com|apps\\.apple\\.com|play\\.google\\.com", "reason": "SeasonCast is shown as past work, without links" },
     { "pattern": "instagram\\.com", "reason": "personal account stays separate until Max decides" }
   ],
   "employer_role_must_be_bare": "Apple",
-  "scan": ["index.html", "404.html", "llms.txt", "main.js", "site.webmanifest"]
+  "employer_mentions_allowed": {
+    "index.html": [
+      "\"worksFor\": { \"@type\": \"Organization\", \"name\": \"Apple\" }",
+      "I’m a software engineer at Apple, living in Mountain View.",
+      "Apple Software Engineer Cupertino, California 2025 -now"
+    ],
+    "llms.txt": [
+      "Current role: Software Engineer at Apple (since 2025). No details about current work are published here."
+    ]
+  }
 }

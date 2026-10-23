@@ -24,7 +24,7 @@ npm run deploy   # check, then publish site/ to the gh-pages branch (themaxsmith
 
 ## Rules for anything public (Max works at Apple)
 
-- The Apple role is title, city and dates only. No team, project, tool or product names, nothing unannounced, no Apple logos or imagery, nothing that reads as speaking for Apple.
+- The Apple role is title, city and dates only. No team, project, tool or product names, nothing that is not already public, no Apple logos or imagery, nothing that reads as speaking for Apple.
 - SeasonCast is shown as past work (2019–2024) with no store or company links.
 - No phone number, and the email address is assembled in JavaScript.
 - Add a pattern to `scripts/guardrails.json` before adding new content of a new kind. `npm run check` must pass before `npm run deploy`.

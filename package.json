@@ -7,7 +7,7 @@
   "scripts": {
     "check": "node scripts/check.mjs",
     "serve": "python3 -m http.server 8080 --directory site",
-    "deploy": "node scripts/check.mjs && gh-pages --dist site --dotfiles"
+    "deploy": "node scripts/check.mjs --require-private && gh-pages --dist site"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"

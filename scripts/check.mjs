@@ -4,8 +4,8 @@
 // 2. Search basics: title, description, canonical, structured data, sitemap, images.
 // Exit code 1 on any failure, so CI and agents can gate on it.
 
-import { readFileSync, existsSync, statSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { readFileSync, readdirSync, existsSync, statSync } from "node:fs";
+import { join, dirname, relative, extname, basename } from "node:path";
 import { homedir } from "node:os";
 import { fileURLToPath } from "node:url";
 
@@ -15,7 +15,7 @@ const rules = JSON.parse(readFileSync(join(root, "scripts", "guardrails.json"), 
 const html = readFileSync(join(site, "index.html"), "utf8");
 
 // Private terms never live in this public repo. CI runs the public rules only;
-// local and agent runs also load the private list when it is present.
+// local and agent runs also load the private list. `--require-private` (used by deploy) fails without it.
 const privatePath = process.env.THEMAXSMITH_PRIVATE_GUARDRAILS ||
   join(homedir(), ".config", "themaxsmith", "guardrails.private.json");
 const privateRules = existsSync(privatePath) ? JSON.parse(readFileSync(privatePath, "utf8")).forbidden || [] : null;
@@ -25,13 +25,31 @@ const passes = [];
 const check = (ok, label, detail = "") => (ok ? passes : failures).push(detail ? `${label}: ${detail}` : label);
 
 // ---------- 1. guardrails ----------
+const walk = (dir) => readdirSync(dir, { withFileTypes: true })
+  .flatMap((e) => (e.isDirectory() ? walk(join(dir, e.name)) : [join(dir, e.name)]));
+const files = walk(site);
+const TEXT = new Set([".html", ".css", ".js", ".txt", ".xml", ".svg", ".webmanifest", ".json", ""]);
+const textFiles = [...files.filter((f) => TEXT.has(extname(f))), join(root, "README.md")];
+
+// Match raw source and a normalized reading of it, so entities, tags, CSS escapes,
+// non-breaking spaces and look-alike hyphens can't hide a term.
+const NAMED = { nbsp: " ", amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", rsquo: "’", lsquo: "‘", ndash: "–", mdash: "—", hyphen: "-", shy: "" };
+const decode = (t) => t
+  .replace(/&#x([0-9a-f]+);?/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+  .replace(/&#(\d+);?/g, (_, d) => String.fromCodePoint(Number(d)))
+  .replace(/&([a-z]+);/gi, (m, n) => NAMED[n.toLowerCase()] ?? m)
+  .replace(/\\([0-9a-f]{4,6})\s?/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)));
+const normalize = (t) => decode(t).replace(/<[^>]+>/g, " ").normalize("NFKC")
+  .replace(/[­​-‍⁠]/g, "").replace(/[‐-―−]/g, "-").replace(/\s+/g, " ");
+
 const scan = (list, privateList) => {
-  for (const file of rules.scan) {
-    const path = join(site, file);
-    if (!existsSync(path)) continue;
-    const text = readFileSync(path, "utf8");
+  for (const path of textFiles) {
+    const file = relative(root, path);
+    const raw = readFileSync(path, "utf8");
+    const views = [raw, normalize(raw)];
     list.forEach(({ pattern, reason }, n) => {
-      const m = text.match(new RegExp(pattern, "i"));
+      const re = new RegExp(pattern, "iu");
+      const m = views.map((v) => v.match(re)).find(Boolean);
       // private hits are reported by rule number only, so CI logs never echo a private term
       const label = privateList ? `private guardrail #${n + 1} in ${file}` : `guardrail ${file} /${pattern}/`;
       check(!m, label, m ? (privateList ? "matched" : `found "${m[0]}" (${reason})`) : "");
@@ -40,6 +58,31 @@ const scan = (list, privateList) => {
 };
 scan(rules.forbidden, false);
 if (privateRules) scan(privateRules, true);
+if (process.argv.includes("--require-private")) {
+  check(Boolean(privateRules), "private guardrails loaded (required for deploy)", privateRules ? "" : `missing ${privatePath}`);
+}
+
+// Every mention of the current employer must be one of the approved sentences.
+for (const [file, allowed] of Object.entries(rules.employer_mentions_allowed || {})) {
+  let text = normalize(readFileSync(join(site, file), "utf8"));
+  for (const phrase of allowed) {
+    check(text.includes(phrase), `approved employer mention still present in ${file}`, phrase);
+    text = text.split(phrase).join(" ");
+  }
+  const extra = text.match(/.{0,40}\bApple\b.{0,40}/u);
+  check(!extra, `no unapproved employer mention in ${file}`, extra ? `"${extra[0].trim()}" (add to employer_mentions_allowed only with Max's OK)` : "");
+}
+
+// Nothing hidden ships: dotfiles, design sources, source maps, photo metadata.
+for (const f of files) {
+  const name = relative(site, f);
+  check(!basename(f).startsWith(".") || name === ".nojekyll", "no dotfiles in site/", name);
+  check(![".psd", ".map", ".ai", ".sketch", ".fig"].includes(extname(f)), "no design sources or source maps in site/", name);
+  if ([".jpg", ".jpeg", ".webp", ".png"].includes(extname(f))) {
+    const head = readFileSync(f).subarray(0, 65536).toString("latin1");
+    check(!/Exif\0\0|EXIF|GPS|<x:xmpmeta/.test(head), "image has no EXIF/GPS/XMP metadata", name);
+  }
+}
 
 if (rules.employer_role_must_be_bare) {
   // The current employer's role is title, place and dates only: no expandable details.

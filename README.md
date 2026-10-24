@@ -8,7 +8,7 @@ Personal site of Max Smith: a résumé told as a life story. One static page, on
 | --- | --- |
 | `site/index.html` | The page, including meta tags and `Person` / `ProfilePage` structured data |
 | `site/styles.css` | All styles. Light and dark follow the system; motion respects reduced-motion |
-| `site/main.js` | Email link assembly and footer year |
+| `site/main.js` | Email link assembly |
 | `site/img/` | Ten graded photos named for who and where (`*-sm`/`*-lg`, WebP + JPEG), square/4:3/16:9 portraits for structured data, and the share card |
 | `site/llms.txt`, `llms-full.txt`, `robots.txt`, `sitemap.xml` | What crawlers and AI assistants read |
 | `scripts/check.mjs` | Pre-publish check: guardrails plus search basics. Exits 1 on any failure |

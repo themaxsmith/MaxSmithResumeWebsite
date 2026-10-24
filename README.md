@@ -7,7 +7,7 @@ Personal site of Max Smith: a résumé told as a life story. One static page, on
 | Path | What it is |
 | --- | --- |
 | `site/index.html` | The page, including meta tags and `Person` / `ProfilePage` structured data |
-| `site/styles.css` | All styles. Light and dark follow the system; motion respects reduced-motion |
+| `site/styles.css` | All styles. Light only, no animation |
 | `site/main.js` | Email link assembly |
 | `site/img/` | Ten graded photos named for who and where (`*-sm`/`*-lg`, WebP + JPEG), square/4:3/16:9 portraits for structured data, and the share card |
 | `site/llms.txt`, `llms-full.txt`, `robots.txt`, `sitemap.xml` | What crawlers and AI assistants read |
@@ -21,6 +21,8 @@ npm run serve    # http://localhost:8080
 npm run check    # guardrails + SEO basics; CI runs this on every push
 npm run deploy   # check, then publish site/ to the gh-pages branch (themaxsmith.com)
 ```
+
+Cloudflare caches CSS and JS for 4 hours. After editing `styles.css` or `main.js`, update its `?v=` in `index.html` and `404.html` to the first 8 hex characters of the file's SHA-256 (`shasum -a 256 site/styles.css | cut -c1-8`). The check fails until it matches.
 
 ## Rules for anything public (Max works at Apple)
 

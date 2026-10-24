@@ -8,6 +8,7 @@ import { readFileSync, readdirSync, existsSync, statSync } from "node:fs";
 import { join, dirname, relative, extname, basename } from "node:path";
 import { homedir } from "node:os";
 import { fileURLToPath } from "node:url";
+import { createHash } from "node:crypto";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const site = join(root, "site");
@@ -148,11 +149,21 @@ check(!/\b(AI|LLMs?|agents?)\b/.test(JSON.stringify(person || {})), "Person data
 // every local asset the page references exists
 const refs = [...html.matchAll(/(?:href|src|srcset|imagesrcset|content)="([^"]+)"/g)]
   .flatMap((m) => m[1].split(",").map((s) => s.trim().split(/\s+/)[0]))
-  .map((u) => u.replace(/^https:\/\/themaxsmith\.com/, ""))
+  .map((u) => u.replace(/^https:\/\/themaxsmith\.com/, "").replace(/[?#].*$/, ""))
   .filter((u) => u.startsWith("/") && !u.startsWith("//") && u !== "/");
 for (const ref of new Set(refs)) {
   const p = join(site, ref);
   check(existsSync(p) && statSync(p).isFile(), `asset exists ${ref}`);
+}
+
+// Cloudflare and browsers cache CSS and JS for hours, so every page loads them as
+// /file?v=<first 8 hex of its sha256>. Edit the file and this fails until the version is bumped.
+const version = (f) => createHash("sha256").update(readFileSync(join(site, f))).digest("hex").slice(0, 8);
+for (const page of ["index.html", "404.html"]) {
+  const src = readFileSync(join(site, page), "utf8");
+  for (const m of src.matchAll(/(?:href|src)="\/([\w.-]+\.(?:css|js))(\?v=([0-9a-f]+))?"/g)) {
+    check(m[3] === version(m[1]), `${page} loads ${m[1]} with its current version`, `?v=${version(m[1])}`);
+  }
 }
 
 const sitemap = readFileSync(join(site, "sitemap.xml"), "utf8");

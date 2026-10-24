@@ -39,7 +39,7 @@
   <link rel="me" href="https://github.com/themaxsmith">
 
   <link rel="preload" href="/fonts/host-grotesk.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" as="image" type="image/webp" href="/img/max-smith-california-2026-lg.webp" imagesrcset="/img/max-smith-california-2026-sm.webp 400w, /img/max-smith-california-2026-lg.webp 800w" imagesizes="(min-width: 860px) 240px, (min-width: 496px) 448px, calc(100vw - 48px)" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="/img/max-smith-california-2026-lg.webp" imagesrcset="/img/max-smith-california-2026-sm.webp 400w, /img/max-smith-california-2026-lg.webp 800w" imagesizes="(min-width: 860px) 248px, min(232px, 60vw)" fetchpriority="high">
   <link rel="stylesheet" href="/styles.css">
 
   <script type="application/ld+json">
@@ -512,11 +512,16 @@
   <a class="skip" href="#main">Skip to content</a>
 
   <div class="page">
-    <header class="head">
-      <div>
-        <h1 class="name">Max Smith</h1>
-        <p class="tagline">Software Engineer</p>
-      </div>
+    <header class="hero">
+      <figure class="hero-photo">
+        <picture>
+          <source type="image/webp" srcset="/img/max-smith-california-2026-sm.webp 400w, /img/max-smith-california-2026-lg.webp 800w" sizes="(min-width: 860px) 248px, min(232px, 60vw)">
+          <img src="/img/max-smith-california-2026-lg.jpg" srcset="/img/max-smith-california-2026-sm.jpg 400w, /img/max-smith-california-2026-lg.jpg 800w" sizes="(min-width: 860px) 248px, min(232px, 60vw)"
+               width="800" height="1000" alt="Max Smith, software engineer, on a terrace overlooking Carmel Bay, California, 2026" fetchpriority="high">
+        </picture>
+      </figure>
+      <h1 class="name">Max Smith</h1>
+      <p class="tagline">Software Engineer</p>
       <ul class="links" aria-label="Contact">
         <li><a class="js-email" href="#contact">Email</a></li>
         <li><a href="https://www.linkedin.com/in/themaxsmith/" rel="me">LinkedIn</a></li>
@@ -525,19 +530,6 @@
     </header>
 
     <main id="main" tabindex="-1">
-      <section class="chapter intro" aria-label="About">
-        <div class="ch-body">
-          <p class="lead">I’m a software engineer at Apple, based in the Bay Area.</p>
-          <p class="sub">Before that, I spent three years at PlayStation in San&nbsp;Francisco. I grew up in Iowa, where I started SeasonCast, a streaming platform for high school sports.</p>
-        </div>
-        <figure class="ch-photo">
-          <picture>
-            <source type="image/webp" srcset="/img/max-smith-california-2026-sm.webp 400w, /img/max-smith-california-2026-lg.webp 800w" sizes="(min-width: 860px) 240px, (min-width: 496px) 448px, calc(100vw - 48px)">
-            <img src="/img/max-smith-california-2026-lg.jpg" srcset="/img/max-smith-california-2026-sm.jpg 400w, /img/max-smith-california-2026-lg.jpg 800w" sizes="(min-width: 860px) 240px, (min-width: 496px) 448px, calc(100vw - 48px)"
-                 width="800" height="1000" alt="Max Smith, software engineer, on a terrace overlooking Carmel Bay, California, 2026" fetchpriority="high">
-          </picture>
-        </figure>
-      </section>
 
       <ol class="story" aria-label="Work and education, most recent first">
         <li class="chapter">

@@ -29,7 +29,7 @@ This is the full text of https://themaxsmith.com/, his personal site, for assist
 ## Education
 
 - Iowa State University, Ames, Iowa — B.S., Computer Science, 2022. Chapter president, Pi Kappa Alpha, 2021–2022.
-- Des Moines Area Community College — A.A.S., 2019, earned while still in high school in Ankeny, Iowa, alongside his first games and apps in Java and Swift.
+- Des Moines Area Community College — A.A.S., 2019, earned before graduating from high school in Ankeny, Iowa. He has been building apps since he was 14.
 
 ## Skills
 

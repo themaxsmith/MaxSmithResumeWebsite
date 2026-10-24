@@ -1,5 +1,6 @@
 /* themaxsmith.com — a résumé that reads like a life story. One typeface, warm paper, light only.
-   Desktop: when | words | photo.  Phone: title and when, words, then the photo. */
+   Opening: portrait, name, role, links, centered.
+   Chapters, desktop: when | words | photo.  Phone: title and when, words, then the photo. */
 
 @font-face {
   font-family: "Host Grotesk";
@@ -76,17 +77,22 @@ main:focus { outline: none; }
   padding: clamp(40px, 10vh, 120px) var(--gutter) calc(48px + env(safe-area-inset-bottom));
 }
 
-.head {
+/* the opening: portrait, name, role, links. Centered, no description */
+.hero {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: .5rem 2rem;
-  line-height: 1.45;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 2.5rem;
 }
-.name { font-size: 1rem; font-weight: 560; letter-spacing: -.01em; }
-.tagline { color: var(--gray); }
-.links { display: flex; gap: 1.25rem; color: var(--gray); }
+.hero-photo { width: min(232px, 60vw); margin-bottom: 2rem; }
+.hero-photo img {
+  width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover;
+  border-radius: 14px; background: var(--rule);
+}
+.name { font-size: clamp(2.5rem, 1.7rem + 3vw, 3.75rem); font-weight: 500; letter-spacing: -.045em; line-height: 1; }
+.tagline { margin-top: .7rem; font-size: 1.125rem; letter-spacing: -.01em; color: var(--gray); }
+.links { display: flex; justify-content: center; gap: 1.25rem; margin-top: 1.4rem; color: var(--gray); }
 .links a { display: inline-block; padding-block: .6rem; margin-block: -.6rem; }
 .links a:hover { color: var(--ink); }
 
@@ -148,11 +154,6 @@ picture, picture img { display: block; }
 .ch-photo.wide img { aspect-ratio: 3 / 2; }
 figcaption { margin-top: .5rem; font-size: .8125rem; line-height: 1.4; color: var(--gray); }
 
-/* the opening: who, now — face beside it */
-.intro { border-top: 0; padding-top: clamp(40px, 8vh, 80px); grid-template-areas: "body body" "photo photo"; }
-.lead { font-size: clamp(1.375rem, 1.1rem + 1.1vw, 1.75rem); line-height: 1.3; letter-spacing: -.02em; font-weight: 440; text-wrap: balance; }
-.sub { margin-top: .9rem; color: var(--gray); text-wrap: pretty; }
-
 /* closing gallery: no words. A swipe with a peek on phones, a band wider than the text on desktop */
 .outside { padding-block: 2.5rem 3rem; border-top: 1px solid var(--rule); }
 .strip {
@@ -175,8 +176,8 @@ figcaption { margin-top: .5rem; font-size: .8125rem; line-height: 1.4; color: va
   }
   .ch-photo, .ch-photo.wide { width: 100%; margin-top: .2rem; }
   .ch-body { padding-top: .35rem; }
-  .intro { grid-template-areas: "body body photo"; padding-top: clamp(40px, 7vh, 72px); align-items: start; }
-  .intro .ch-body { max-width: 36rem; padding-top: 0; margin-top: -.4rem; }
+  .hero { padding-top: .5rem; padding-bottom: 3.5rem; }
+  .hero-photo { width: 248px; margin-bottom: 2.25rem; }
   .outside { padding-block: 3.5rem 4rem; }
   .strip {
     display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; overflow: visible;
@@ -206,9 +207,10 @@ figcaption { margin-top: .5rem; font-size: .8125rem; line-height: 1.4; color: va
 @media print {
   :root { --paper: #fff; --ink: #000; --gray: #444; --rule: #ccc; }
   .page { padding: 0; max-width: none; }
-  .skip, .ch-photo, .outside { display: none; }
+  .skip, .ch-photo, .hero-photo, .outside { display: none; }
+  .hero { padding-bottom: 1rem; }
+  .name { font-size: 2rem; }
   .chapter { grid-template-columns: 7rem minmax(0, 1fr); grid-template-areas: "when title" "when body"; padding-block: 1rem; break-inside: avoid; }
-  .intro { grid-template-areas: "body body"; }
   .links a[href^="http"]::after { content: " " attr(href); }
 }
 
@@ -216,7 +218,6 @@ figcaption { margin-top: .5rem; font-size: .8125rem; line-height: 1.4; color: va
 
 @media (max-width: 859px) {
   .page { padding-top: 32px; }
-  .intro { padding-top: 32px; }
 }
 
 @media (max-width: 399px) {

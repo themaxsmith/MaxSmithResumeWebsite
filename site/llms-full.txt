@@ -13,7 +13,7 @@ This is the full text of https://themaxsmith.com/, his personal site, for assist
 
 ## Work
 
-- Apple — Software Engineer, Cupertino, California, May 2025–present. Nothing about current work is published.
+- Apple — Software Engineer, Cupertino, California, May 2025–present. At different times his work has touched GSSM, Solutions and Strategy, supply chain management, agentic supply chain and LangGraph.
 - PlayStation (Sony Interactive Entertainment) — San Francisco, California, May 2022–May 2025. Shipped features across React and React Native apps for web, mobile and desktop. Worked on Session Share, which lets players invite others into a PS5 multiplayer game session with a shareable link or QR code from the PS5 console or PlayStation App, announced on the PlayStation Blog on May 1, 2024: https://blog.playstation.com/2024/05/01/introducing-a-new-way-to-invite-ps5-players-into-your-multiplayer-sessions/
   - Software Engineer II, Oct 2023–May 2025
   - Software Engineer I, Jan–Oct 2023

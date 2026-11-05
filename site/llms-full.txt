@@ -18,7 +18,7 @@ This is the full text of https://themaxsmith.com/, his personal site, for assist
   - Software Engineer II, Oct 2023–May 2025
   - Software Engineer I, Jan–Oct 2023
   - Software Engineer Intern, May–Dec 2022
-- SeasonCast — Founder, Ankeny, Iowa, 2019–2024. Live streaming for high school and youth sports on iOS, Android and the web. It grew fastest during the COVID-19 pandemic (2020–2021), when many schools limited or barred spectators and families turned to live streams to watch games. Designed and built all seven codebases, from the apps to a C++ media server. 300,000+ monthly users, 6,000+ teams a year, 99.995% uptime over 3+ years. First place, best student-owned business, Iowa State University, 2021. The SeasonCast app is rated 4.5 stars from about 5,000 App Store ratings.
+- SeasonCast — Founder, Ankeny, Iowa, 2019–2024 (https://seasoncast.com/). Live streaming for high school and youth sports on iOS, Android and the web. It grew fastest during the COVID-19 pandemic (2020–2021), when many schools limited or barred spectators and families turned to live streams to watch games. Designed and built all seven codebases, from the apps to a C++ media server. 300,000+ monthly users, 6,000+ teams a year, 99.995% uptime over 3+ years. First place, best student-owned business, Iowa State University, 2021. The SeasonCast app is rated 4.5 stars from about 5,000 App Store ratings.
 
 ## Internships
 

@@ -22,8 +22,8 @@
       "reason": "email addresses are assembled in JavaScript, never left in a file"
     },
     {
-      "pattern": "seasoncast\\.com|apps\\.apple\\.com|play\\.google\\.com",
-      "reason": "SeasonCast is shown as past work, without links"
+      "pattern": "apps\\.apple\\.com|play\\.google\\.com",
+      "reason": "no app store links (seasoncast.com itself is allowed: Max, Nov 5 2026)"
     },
     {
       "pattern": "(?<![\\w/-])apple(?![\\w-])[^.!?]{0,200}\\b(ai|llm|agents?|machine learning)\\b|\\b(ai|llm|agents?|machine learning)\\b[^.!?]{0,200}(?<![\\w/-])apple(?![\\w-])",

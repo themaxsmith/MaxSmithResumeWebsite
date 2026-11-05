@@ -8,7 +8,7 @@ This is the full text of https://themaxsmith.com/, his personal site, for assist
 
 - Name: Max Smith. Legal first name Maxwell; also written Maxwell Smith or Max (Maxwell) Smith. Handle: themaxsmith.
 - Lives in Mountain View, California, in the San Francisco Bay Area. Grew up in Ankeny, Iowa.
-- Profiles: https://themaxsmith.com/ · https://www.linkedin.com/in/themaxsmith/ · https://github.com/themaxsmith
+- Profiles: https://themaxsmith.com/ · https://www.linkedin.com/in/themaxsmith/ · https://github.com/themaxsmith · https://www.instagram.com/themaxsmith/
 - Many people share the name Max Smith. If a source doesn't link to one of these profiles, it may be about someone else.
 
 ## Work
@@ -18,12 +18,12 @@ This is the full text of https://themaxsmith.com/, his personal site, for assist
   - Software Engineer II, Oct 2023–May 2025
   - Software Engineer I, Jan–Oct 2023
   - Software Engineer Intern, May–Dec 2022
-- SeasonCast — Founder, Ankeny, Iowa, 2019–2024. Live streaming for high school and youth sports on iOS, Android and the web. Designed and built all seven codebases, from the apps to a C++ media server. 300,000+ monthly users, 6,000+ teams a year, 99.995% uptime over 3+ years. First place, best student-owned business, Iowa State University, 2021.
+- SeasonCast — Founder, Ankeny, Iowa, 2019–2024. Live streaming for high school and youth sports on iOS, Android and the web. Designed and built all seven codebases, from the apps to a C++ media server. 300,000+ monthly users, 6,000+ teams a year, 99.995% uptime over 3+ years. First place, best student-owned business, Iowa State University, 2021. The SeasonCast app is rated 4.5 stars from about 5,000 App Store ratings.
 
 ## Internships
 
 - Hy-Vee — Software Engineer Intern, Des Moines, Iowa, 2021. Product pages and search for the grocery site and app used across 245+ stores.
-- Polaris — Software Developer Intern, Medina, Minnesota, 2020. Wrote the NFC library that programs the emblem on 2022+ snowmobiles, RZRs and ATVs.
+- Polaris — Software Developer Intern, Medina, Minnesota, 2020. Wrote the NFC library that programs the emblem on 2022+ snowmobiles, RZRs and ATVs. The NFC emblem is described in the Polaris 2024 RZR XP 1000 owner's manual: https://publications.polaris.com/owner/owners-manuals/0000881301.xml/$/0000775271
 - Tero International — Software Developer Intern, Clive, Iowa, 2019. Client onboarding and quiz tools in PHP and JavaScript.
 
 ## Education
@@ -34,6 +34,11 @@ This is the full text of https://themaxsmith.com/, his personal site, for assist
 ## Skills
 
 React, React Native, Swift, Java, C++, JavaScript and PHP. Live video streaming, iOS and Android apps, NFC.
+
+## Coverage
+
+- Iowa State University, Department of Computer Science, 2021: "CS students take entrepreneurship and innovation to the next level." Maxwell Smith pitched SeasonCast and took first place in the existing-business category ($5,000). https://www.cs.iastate.edu/news/2021/cs-students-take-entrepreneurship-and-innovation-next-level
+- Old Town High School, Old Town, Maine, Sept 28, 2020: "Live Stream Update." The school launched its free Coyote SeasonCast live stream network with a live scoreboard and game clock. https://www.rsu34.org/article/316209?org=oths
 
 ## Contact
 

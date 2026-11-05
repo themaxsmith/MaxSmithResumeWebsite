@@ -13,6 +13,11 @@ This is his personal site and résumé. Many people are named Max Smith; this on
 
 - [LinkedIn](https://www.linkedin.com/in/themaxsmith/)
 - [GitHub](https://github.com/themaxsmith)
+- [Instagram](https://www.instagram.com/themaxsmith/)
+
+## Coverage
+
+- [Iowa State University CS news, 2021](https://www.cs.iastate.edu/news/2021/cs-students-take-entrepreneurship-and-innovation-next-level): first place for SeasonCast in a student pitch competition
 
 ## Optional
 

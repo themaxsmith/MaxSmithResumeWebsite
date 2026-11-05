@@ -14,7 +14,7 @@ This is the full text of https://themaxsmith.com/, his personal site, for assist
 ## Work
 
 - Apple — Software Engineer, Cupertino, California, May 2025–present. Nothing about current work is published.
-- PlayStation (Sony Interactive Entertainment) — San Francisco, California, May 2022–May 2025. Shipped features across React and React Native apps for web, mobile and desktop, and built a new full-stack PlayStation Network app.
+- PlayStation (Sony Interactive Entertainment) — San Francisco, California, May 2022–May 2025. Shipped features across React and React Native apps for web, mobile and desktop.
   - Software Engineer II, Oct 2023–May 2025
   - Software Engineer I, Jan–Oct 2023
   - Software Engineer Intern, May–Dec 2022

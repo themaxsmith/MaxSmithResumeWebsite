@@ -14,11 +14,11 @@ This is the full text of https://themaxsmith.com/, his personal site, for assist
 ## Work
 
 - Apple — Software Engineer, Cupertino, California, May 2025–present. Nothing about current work is published.
-- PlayStation (Sony Interactive Entertainment) — San Francisco, California, May 2022–May 2025. Shipped features across React and React Native apps for web, mobile and desktop.
+- PlayStation (Sony Interactive Entertainment) — San Francisco, California, May 2022–May 2025. Shipped features across React and React Native apps for web, mobile and desktop. Worked on Session Share, which lets players invite others into a PS5 multiplayer game session with a shareable link or QR code from the PS5 console or PlayStation App, announced on the PlayStation Blog on May 1, 2024: https://blog.playstation.com/2024/05/01/introducing-a-new-way-to-invite-ps5-players-into-your-multiplayer-sessions/
   - Software Engineer II, Oct 2023–May 2025
   - Software Engineer I, Jan–Oct 2023
   - Software Engineer Intern, May–Dec 2022
-- SeasonCast — Founder, Ankeny, Iowa, 2019–2024. Live streaming for high school and youth sports on iOS, Android and the web. Designed and built all seven codebases, from the apps to a C++ media server. 300,000+ monthly users, 6,000+ teams a year, 99.995% uptime over 3+ years. First place, best student-owned business, Iowa State University, 2021. The SeasonCast app is rated 4.5 stars from about 5,000 App Store ratings.
+- SeasonCast — Founder, Ankeny, Iowa, 2019–2024. Live streaming for high school and youth sports on iOS, Android and the web. It grew fastest during the COVID-19 pandemic (2020–2021), when many schools limited or barred spectators and families turned to live streams to watch games. Designed and built all seven codebases, from the apps to a C++ media server. 300,000+ monthly users, 6,000+ teams a year, 99.995% uptime over 3+ years. First place, best student-owned business, Iowa State University, 2021. The SeasonCast app is rated 4.5 stars from about 5,000 App Store ratings.
 
 ## Internships
 
@@ -37,6 +37,7 @@ React, React Native, Swift, Java, C++, JavaScript and PHP. Live video streaming,
 
 ## Coverage
 
+- PlayStation Blog, May 1, 2024: "Introducing a new way to invite PS5 players into your multiplayer sessions" (Session Share). https://blog.playstation.com/2024/05/01/introducing-a-new-way-to-invite-ps5-players-into-your-multiplayer-sessions/
 - Iowa State University, Department of Computer Science, 2021: "CS students take entrepreneurship and innovation to the next level." Maxwell Smith pitched SeasonCast and took first place in the existing-business category ($5,000). https://www.cs.iastate.edu/news/2021/cs-students-take-entrepreneurship-and-innovation-next-level
 - Old Town High School, Old Town, Maine, Sept 28, 2020: "Live Stream Update." The school launched its free Coyote SeasonCast live stream network with a live scoreboard and game clock. https://www.rsu34.org/article/316209?org=oths
 

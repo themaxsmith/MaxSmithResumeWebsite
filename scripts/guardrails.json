@@ -26,10 +26,6 @@
       "reason": "SeasonCast is shown as past work, without links"
     },
     {
-      "pattern": "instagram\\.com",
-      "reason": "personal account stays separate until Max decides"
-    },
-    {
       "pattern": "(?<![\\w/-])apple(?![\\w-])[^.!?]{0,200}\\b(ai|llm|agents?|machine learning)\\b|\\b(ai|llm|agents?|machine learning)\\b[^.!?]{0,200}(?<![\\w/-])apple(?![\\w-])",
       "reason": "AI wording never sits in the same sentence as the Apple role (needs Apple check)"
     },

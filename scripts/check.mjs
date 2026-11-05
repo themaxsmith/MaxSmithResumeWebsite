@@ -13,6 +13,8 @@ import { createHash } from "node:crypto";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const site = join(root, "site");
 const rules = JSON.parse(readFileSync(join(root, "scripts", "guardrails.json"), "utf8"));
+// Descriptive image XMP is allowed; these markers mean GPS or camera data and never ship.
+const SENSITIVE_XMP = /GPS|tiff:Make|tiff:Model|SerialNumber|exif:/i;
 const html = readFileSync(join(site, "index.html"), "utf8");
 
 // Private terms never live in this public repo. CI runs the public rules only;
@@ -85,7 +87,7 @@ for (const f of files) {
   check(!basename(f).startsWith(".") || name === ".nojekyll", "no dotfiles in site/", name);
   check(![".psd", ".map", ".ai", ".sketch", ".fig"].includes(extname(f)), "no design sources or source maps in site/", name);
   if ([".jpg", ".jpeg", ".webp", ".png"].includes(extname(f))) {
-    check(!imageMetadata(readFileSync(f), extname(f)), "image has no EXIF/GPS/XMP metadata", name);
+    check(!imageMetadata(readFileSync(f), extname(f)), "image has no EXIF, GPS or camera metadata", name);
   }
 }
 
@@ -195,13 +197,16 @@ check(weight < 200_000, "first view under 200 KB", `${Math.round(weight / 1024)}
 
 
 // Walk the container format instead of grepping bytes, so compressed data can't false-positive.
+// Descriptive IPTC/XMP (title, caption, creator, place names) is allowed for image search (Max, Nov 5 2026).
+// EXIF blocks, GPS coordinates and camera make/model/serial never ship.
 function imageMetadata(buf, ext) {
   if (ext === ".jpg" || ext === ".jpeg") {
     for (let i = 2; i + 4 < buf.length && buf[i] === 0xff; ) {
       const marker = buf[i + 1], len = buf.readUInt16BE(i + 2);
       if (marker === 0xda) break;                                  // start of scan: no more headers
       const body = buf.subarray(i + 4, i + 2 + len).toString("latin1");
-      if (marker === 0xe1 && (body.startsWith("Exif\0\0") || body.includes("ns.adobe.com/xap"))) return "EXIF/XMP";
+      if (marker === 0xe1 && body.startsWith("Exif\0\0")) return "EXIF";
+      if (marker === 0xe1 && body.includes("ns.adobe.com/xap") && SENSITIVE_XMP.test(body)) return "XMP with GPS/camera data";
       i += 2 + len;
     }
     return null;
@@ -209,7 +214,8 @@ function imageMetadata(buf, ext) {
   if (ext === ".webp") {
     for (let i = 12; i + 8 <= buf.length; ) {
       const id = buf.toString("latin1", i, i + 4), len = buf.readUInt32LE(i + 4);
-      if (id === "EXIF" || id === "XMP ") return id;
+      if (id === "EXIF") return id;
+      if (id === "XMP " && SENSITIVE_XMP.test(buf.toString("latin1", i + 8, i + 8 + len))) return "XMP with GPS/camera data";
       i += 8 + len + (len & 1);
     }
     return null;

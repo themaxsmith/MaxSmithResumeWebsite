@@ -28,7 +28,7 @@ Cloudflare caches CSS and JS for 4 hours. After editing `styles.css` or `main.js
 
 - The Apple role is title, city and dates only. No team, project, tool or product names, nothing that is not already public, no Apple logos or imagery, nothing that reads as speaking for Apple.
 - If AI wording ever returns, it describes Max's own projects only and stays out of any sentence about his current employer; the check enforces this. None is on the page today.
-- Photos: Max's own. Max alone or no people at all; no Apple campus or offices; nothing that shows where he lives; badges and screens softened. Converted to sRGB, re-encoded without metadata (the check fails on EXIF/GPS).
+- Photos: Max's own. Max alone or no people at all; no Apple campus or offices; nothing that shows where he lives; badges and screens softened. Converted to sRGB, re-encoded without camera metadata. Only descriptive IPTC/XMP is added (title, caption, creator, place names); the check fails on EXIF, GPS or camera data.
 - SeasonCast is shown as past work (2019–2024) with no store or company links.
 - No phone number, and the email address is assembled in JavaScript.
 - Add a pattern to `scripts/guardrails.json` before adding new content of a new kind. `npm run check` must pass before `npm run deploy`.

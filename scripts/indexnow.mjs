@@ -3,7 +3,10 @@
 // Bing's index is what Microsoft Copilot answers from. Google doesn't use IndexNow: use Search Console there.
 const KEY = "531c38ab0dfc7ec6063429723942c9fb";
 const HOST = "themaxsmith.com";
-const urls = ["/", "/llms.txt", "/llms-full.txt"].map((p) => `https://${HOST}${p}`);
+const IMAGES = ["max-smith-california-2026", "max-smith-playstation-2022", "max-smith-building-seasoncast-2020",
+  "max-smith-iowa-state-graduation-2022", "max-smith-des-moines-iowa", "max-smith-golden-gate-san-francisco"]
+  .map((n) => `/img/${n}-lg.jpg`);
+const urls = ["/", "/llms.txt", "/llms-full.txt", "/sitemap.xml", ...IMAGES].map((p) => `https://${HOST}${p}`);
 const keyLocation = `https://${HOST}/${KEY}.txt`;
 
 // GitHub Pages takes a minute to publish; wait until the key file is live, or IndexNow rejects the ping.
